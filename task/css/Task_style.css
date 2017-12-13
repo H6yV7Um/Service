@@ -1,0 +1,15 @@
+﻿#div_list{ padding:10px;}
+#div_list .div_content{ border-bottom:1px dashed gray; margin-bottom:15px;}
+#div_list .sp_name{ font-size:16px; font-weight:700;}
+#div_list .sp_sdate{ font-size:14px; color:Gray; margin-left:10px;float:right;}
+#div_list .sp_edate{font-size:14px; color:Gray; margin-left:100px; float:right;}
+#div_list .tijiao{font-size:14px; color:Gray; margin-left:100px; float:right;}
+#div_list p{ margin-bottom:10px;}
+#div_list .p1{}
+#div_list .p_title{ font-size:14px;}
+#div_list .p_content{ font-size:14px;}
+/*#div_list .p_title:hover{background-color:gray; color:White;}
+#div_list .p_content:hover{background-color:gray; color:White;}*/
+#div_list .tijiao a{ text-decoration:none; font-size:14px;}
+#div_list .fujian{ margin-left:20px;}
+#div_list .fujian a{ text-decoration:none; font-size:12px; color:gray;}

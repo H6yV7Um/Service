@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Bright.Data;
+using Maticsoft.Common;
+using System.Data;
+
+public partial class content : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+    
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string _title = title.Text.ToString();
+        string _number = number.Text.ToString();
+        int _dp_priority = Convert.ToInt32(dp_priority.SelectedValue);
+        string _txtImgUrl = txtImgUrl.Text.ToString();
+        string _img_url = "";
+        if (!String.IsNullOrEmpty(_txtImgUrl))
+        {
+            _img_url = _txtImgUrl.Substring(2);
+        }
+        string _name = name.Text.ToString();
+        string _tel = tel.Text.ToString();
+        string _address = address.Text.ToString();
+        string _details = details.Text.ToString();
+        string _username = "admin";
+        int _state = 0;
+        string _add_time = DateTime.Now.ToString();
+        ResultDataSet Rs2 = new ResultDataSet();
+        database_inte db2 = new database_inte();
+        string sql2 = "insert into dt_order (title,number,img_url,name,telephone,address,details,username,priority,state,add_time) values ('" + _title + "','" + _number + "','" + _img_url + "','" + _name + "','" + _tel + "','" + _address + "','" + _details + "','" + _username + "','" + _dp_priority + "','" + _state + "','" + _add_time + "')";
+        if (db2.DB2Obj.Exec(sql2))
+        {
+            Response.Write("<script>alert('提交成功！');window.location.href ='content.aspx'</script>");
+        }
+        else
+        {
+            Response.Write("<script>alert('提交失败，请稍后重试！');window.location.href ='content.aspx'</script>");
+        }
+
+    }
+}

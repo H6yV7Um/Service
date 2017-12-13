@@ -1,0 +1,39 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ImageUploadTest.aspx.cs"
+    Inherits="ImageUploadTest" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>layui</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+    <link href="scripts/layui/css/layui.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="scripts/layui/layui.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <input type="file" name="Filedata" class="layui-upload-file">
+    <asp:Image ID="imgID" src="" runat="server" Width="50px" Height="50px" />
+    <asp:TextBox ID="TextBox1"  runat="server"></asp:TextBox>
+    <asp:Label ID="Label1" runat="server" Text="Label" ></asp:Label>
+    <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" />
+    <button class="layui-btn">一个标准的按钮</button>
+    <a href="http://www.layui.com" class="layui-btn">一个可跳转的按钮</a>
+    </form>
+    <script>
+        layui.use('upload', function () {
+            layui.upload({
+                url: 'tools/Handler.ashx',
+                success: function (res) {
+                    var OldPath = res.path;
+                    var NewPath = OldPath.substring(2);
+                    $('#HiddenField1').val(NewPath);
+                    $("#imgID").attr({ src: NewPath, alt: "Test Image" });
+                    //alert(NewPath); //上传成功返回值，必须为json格式
+                }
+            });
+        });
+                
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="order_list_comment.aspx.cs" Inherits="order_order_list_comment" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="../scripts/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="checkbox">
+	<a href="javascript:0;" class="cd-popup-trigger0">样式1</a>
+    <a href="javascript:0;" class="cd-popup-trigger1">样式2</a>
+    <a href="javascript:0;" class="cd-popup-trigger2">样式3</a>
+    <a href="javascript:0;" class="cd-popup-trigger3">样式4</a>
+</div>
+<!--弹框-->
+<div class="cd-popup">
+    <div class="cd-popup-container">
+        <p>几种常见的简洁弹框</p>
+        <div class="cd-buttons">
+            自定义整体容器宽高度及内容，高度可自适应可固定,样式可以定义自己喜欢的样式，这里就不做美观了
+        </div>
+        <a href="#0" class="cd-popup-close">close</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    /*弹框JS内容*/
+    jQuery(document).ready(function ($) {
+        //打开窗口
+        $('.cd-popup-trigger0').on('click', function (event) {
+            event.preventDefault();
+            $('.cd-popup').addClass('is-visible');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup').on('click', function (event) {
+            if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
+                event.preventDefault();
+                $(this).removeClass('is-visible');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function (event) {
+            if (event.which == '27') {
+                $('.cd-popup').removeClass('is-visible');
+            }
+        });
+
+        //打开窗口
+        $('.cd-popup-trigger1').on('click', function (event) {
+            event.preventDefault();
+            $('.cd-popup1').addClass('is-visible1');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup1').on('click', function (event) {
+            if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup1')) {
+                event.preventDefault();
+                $(this).removeClass('is-visible1');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function (event) {
+            if (event.which == '27') {
+                $('.cd-popup1').removeClass('is-visible1');
+            }
+        });
+
+        //打开窗口
+        $('.cd-popup-trigger2').on('click', function (event) {
+            event.preventDefault();
+            $('.cd-popup2').addClass('is-visible2');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup2').on('click', function (event) {
+            if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup2')) {
+                event.preventDefault();
+                $(this).removeClass('is-visible2');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function (event) {
+            if (event.which == '27') {
+                $('.cd-popup2').removeClass('is-visible2');
+            }
+        });
+
+        //打开窗口
+        $('.cd-popup-trigger3').on('click', function (event) {
+            event.preventDefault();
+            $('.cd-popup3').addClass('is-visible3');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup3').on('click', function (event) {
+            if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup3')) {
+                event.preventDefault();
+                $(this).removeClass('is-visible3');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function (event) {
+            if (event.which == '27') {
+                $('.cd-popup3').removeClass('is-visible3');
+            }
+        });
+    });
+</script>
+    </form>
+</body>
+</html>

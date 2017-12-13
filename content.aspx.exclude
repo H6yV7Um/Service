@@ -1,0 +1,338 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="content.aspx.cs" Inherits="content" %>
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <!--
+        ===
+        This comment should NOT be removed.
+
+        Charisma v2.0.0
+
+        Copyright 2012-2014 Muhammad Usman
+        Licensed under the Apache License v2.0
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        http://usman.it
+        http://twitter.com/halalit_usman
+        ===
+    -->
+    <meta charset="utf-8">
+    <title>客服中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+    <meta name="author" content="Muhammad Usman">
+
+    <!-- The styles -->
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+
+    <link href="css/charisma-app.css" rel="stylesheet">
+    <link href='bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='css/jquery.noty.css' rel='stylesheet'>
+    <link href='css/noty_theme_default.css' rel='stylesheet'>
+    <link href='css/elfinder.min.css' rel='stylesheet'>
+    <link href='css/elfinder.theme.css' rel='stylesheet'>
+    <link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='css/uploadify.css' rel='stylesheet'>
+    <link href='css/animate.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="scripts/jquery/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+<script type="text/javascript" src="scripts/datepicker/WdatePicker.js"></script>
+<script type="text/javascript" src="scripts/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="scripts/swfupload/swfupload.handlers.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/kindeditor-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="scripts/js/layout.js"></script>
+<link href="scripts/skin/default/style.css" rel="stylesheet" type="text/css" />
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <script type="text/javascript">
+        $(function () {
+            //初始化表单验证
+            $("#form1").initValidform();
+            //计算用户组价格
+            $("#field_control_sell_price").change(function () {
+                var sprice = $(this).val();
+                if (sprice > 0) {
+                    $(".groupprice").each(function () {
+                        var num = $(this).attr("discount") * sprice / 100;
+                        $(this).val(ForDight(num, 2));
+                    });
+                }
+            });
+            //初始化编辑器
+            var editor = KindEditor.create('.editor', {
+                width: '98%',
+                height: '350px',
+                resizeType: 1,
+                uploadJson: '../../tools/upload_ajax.ashx?action=EditorFile&IsWater=1',
+                fileManagerJson: '../../tools/upload_ajax.ashx?action=ManagerFile',
+                allowFileManager: true
+            });
+            var editorMini = KindEditor.create('.editor-mini', {
+                width: '98%',
+                height: '250px',
+                resizeType: 1,
+                uploadJson: '../../tools/upload_ajax.ashx?action=EditorFile&IsWater=1',
+                items: [
+				'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+            });
+            //初始化上传控件
+            $(".upload-img").each(function () {
+                $(this).InitSWFUpload({ sendurl: "tools/Handler.ashx", flashurl: "scripts/swfupload/swfupload.swf" });
+            });
+            $(".upload-album").each(function () {
+                $(this).InitSWFUpload({ btntext: "批量上传", btnwidth: 66, single: false, water: true, thumbnail: true, filesize: "2048", sendurl: "../../tools/upload_ajax.ashx", flashurl: "../../scripts/swfupload/swfupload.swf", filetypes: "*.jpg;*.jpge;*.png;*.gif;" });
+            });
+            $(".attach-btn").click(function () {
+                showAttachDialog();
+            });
+            //设置封面图片的样式
+            $(".photo-list ul li .img-box img").each(function () {
+                if ($(this).attr("src") == $("#hidFocusPhoto").val()) {
+                    $(this).parent().addClass("selected");
+                }
+            });
+        });
+        //创建附件窗口
+        function showAttachDialog(obj) {
+            var objNum = arguments.length;
+            var attachDialog = $.dialog({
+                id: 'attachDialogId',
+                lock: true,
+                max: false,
+                min: false,
+                title: "上传附件",
+                content: 'url:dialog/dialog_attach.aspx',
+                width: 500,
+                height: 180
+            });
+            //如果是修改状态，将对象传进去
+            if (objNum == 1) {
+                attachDialog.data = obj;
+            }
+        }
+        //删除附件节点
+        function delAttachNode(obj) {
+            $(obj).parent().remove();
+        }
+</script>
+
+<script language="JavaScript">
+    function CheckForm() {
+        if (document.getElementById("title").value == "") {
+            $.dialog.alert('标题不能为空！');
+            return (false);
+        }
+
+        if (document.getElementById("number").value == "") {
+            $.dialog.alert('工号不能为空！');
+            return (false);
+        }
+        if (document.getElementById("name").value == "") {
+            $.dialog.alert('联系人不能为空！');
+            return (false);
+        }
+        if (document.getElementById("tel").value == "") {
+            $.dialog.alert('联系电话不能为空！');
+            return (false);
+        }
+        if (document.getElementById("address").value == "") {
+            $.dialog.alert('报修地址不能为空！');
+            return (false);
+        }
+        if (document.getElementById("details").value == "") {
+            $.dialog.alert('请填写问题描述！');
+            return (false);
+        }
+    }
+
+    function myFunction()
+    {
+        $.ajax({
+                url:'tools/Handler.ashx?action=checkNumber',
+                type:'post',
+                data:{
+                    number:$('#number').val(),
+                },
+                success:function(data,response,status){
+                    if(data>0){
+                    }else{
+                        $.dialog.alert('对不起，请输入正确工号！');
+                        $('#number').focus();                
+                   }
+                },
+            });
+    }
+
+		</script>
+
+</head>
+
+<body>
+
+<div class="ch-container">
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+
+
+<div class="row" >
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i> 信息录入</h2>
+
+                <div class="box-icon">
+                    <%--<a href="#" class="btn btn-setting btn-round btn-default"><i
+                            class="glyphicon glyphicon-cog"></i></a>--%>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i
+                            class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+            <form id="Form1" role="form" runat="server">
+            <div class="control-group">
+                <div class="form-group">
+                        <label for="exampleInputPassword1">标题</label>
+                        <asp:TextBox ID="title" runat="server" class="form-control" placeholder="报修内容标题"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                        <label for="exampleInputPassword1">工号</label>
+                        <asp:TextBox ID="number" runat="server" class="form-control" placeholder="工号" onblur="myFunction()" ></asp:TextBox>
+                </div>
+                    <%--<label class="control-label" for="selectError">病区/科室</label>
+
+                    <div class="controls">
+
+                        <asp:DropDownList ID="brlx" runat="server"  data-rel="chosen" Width="150px">
+                        </asp:DropDownList>
+                    </div>
+                    <label class="control-label" for="selectError">问题类别</label>
+                    <div class="controls">
+
+                        <asp:DropDownList ID="DropDownList1" runat="server"  data-rel="chosen" 
+                            Width="150px" AutoPostBack="True" 
+                            onselectedindexchanged="DropDownList1_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="DropDownList2" runat="server"  data-rel="chosen" Width="250px">
+                            <asp:ListItem></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>--%>
+                    <label class="control-label" for="selectError">优先级</label>
+                    <div class="controls">
+                        <asp:DropDownList ID="dp_priority" runat="server"  data-rel="chosen" Width="250px">
+                            <asp:ListItem Value="0">普通</asp:ListItem>
+                            <asp:ListItem Value="1">重要</asp:ListItem>
+                            <asp:ListItem Value="2">紧急</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                <div class="form-group">
+                        <label for="exampleInputEmail1">故障图片</label>
+                        <div class="upload-box upload-img"></div>
+                        <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control upload-path"  />
+                        
+                        <p class="help-block">您可选择故障照片上传，只允许上传*.jpg;*.jpge;*.png;*.gif;文件大小不超过2M</p>
+                </div>
+
+                
+                <label class="control-label" for="selectError">联系人</label>
+                    <div class="controls">
+                        <asp:TextBox ID="name" runat="server" class="form-control" placeholder="请输入联系人"></asp:TextBox>
+                    </div>
+                    <label class="control-label" for="selectError">联系电话</label>
+                    <div class="controls">
+                        <asp:TextBox ID="tel" runat="server" class="form-control" placeholder="请输入联系电话"></asp:TextBox>
+                    </div>
+                    <label class="control-label" for="selectError">报修地址</label>
+                    <div class="controls">
+                        <asp:TextBox ID="address" runat="server" class="form-control" placeholder="请输入报修地址"></asp:TextBox>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">问题描述</label>
+                        <asp:TextBox ID="details" runat="server" class="form-control" placeholder="问题描述" TextMode="MultiLine"></asp:TextBox>
+                </div>
+              </div>
+                    
+
+                    <asp:Button ID="Button1" runat="server" class="btn btn-default" 
+                Text="提交" onclick="Button1_Click" OnClientClick="return CheckForm();" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Button2" runat="server" class="btn btn-default" 
+                Text="提交并发短信通知" Visible="False" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+</div><!--/row-->
+
+    <!-- content ends -->
+    </div><!--/#content.col-md-0-->
+
+
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='bower_components/moment/min/moment.min.js'></script>
+<script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="js/charisma.js"></script>
+
+
+</body>
+</html>
+

@@ -114,6 +114,7 @@
     <th align="left" width="13%">报修地址</th>
     <th align="left" width="5%">接收人</th>
     <th align="left" width="9%">接收时间</th>
+    <th align="left" width="9%">完成时间</th>
     <th align="left" width="6%">联系人</th>
     <th align="left" width="8%">电话</th>
     <th align="left" width="8%">提交人员</th>
@@ -134,6 +135,7 @@
     <td><%# Eval("address")%></td>
     <td class="phone" style="color:#2A72C5; cursor:pointer;" title="<%#getManagerModel(Eval("update_name").ToString(),"telephone") %>"><%# getUserName(Eval("update_name").ToString())%></td>
     <td><%# Eval("update_time")%></td>
+    <td><%# Eval("pingJia_time")%></td>
     <td><%# Eval("name")%></td>
     <td><%# Eval("telephone")%></td>
     <td><%# getUserName(Eval("username").ToString())%></td>
@@ -144,7 +146,7 @@
   </tr>
 </ItemTemplate>
 <FooterTemplate>
-  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"13\">暂无记录</td></tr>" : ""%>
+  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"14\">暂无记录</td></tr>" : ""%>
 </table>
 </FooterTemplate>
 </asp:Repeater>

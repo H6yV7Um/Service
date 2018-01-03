@@ -97,7 +97,7 @@ public partial class order_order_list_ok : BasePage
     /// </summary>
     public DataSet GetList(int channel_id, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
     {
-        string sql = ChkGroup("select id,title,address,update_name,update_time, name,telephone,username,add_time,priority,state from dt_order where state='3'");
+        string sql = ChkGroup("select id,title,address,update_name,update_time,pingJia_time, name,telephone,username,add_time,priority,state from dt_order where state='3'");
         if (strWhere.Trim() != "")
         {
             sql += " and" + strWhere;

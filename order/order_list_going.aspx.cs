@@ -185,7 +185,7 @@ public partial class order_order_list_going : BasePage
             //&& _userName == getOrderModel(id.ToString(), "update_name"))
             string _date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             //string sql = "update dt_order set state=3,update_name='" + _name + "',update_time='"+_date+"' where id='" + id + "'";
-            string sql = "update dt_order set state=3 where id='" + id + "'";
+            string sql = "update dt_order set state=3, updateComplete_time='" + _date + "' where id='" + id + "'";
             bool result = db.DB2Obj.Exec(sql);
             if (result)
             {

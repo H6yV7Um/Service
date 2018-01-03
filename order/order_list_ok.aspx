@@ -96,6 +96,7 @@
     <th align="left" width="8%">电话</th>
     <th align="left" width="8%">提交人员</th>
     <th align="left" width="9%">提交时间</th>
+    <th align="left" width="9%">完成时间</th>
     <th width="4%">优先级</th>
     <th width="4%">状态</th>
     <th width="5%">操作</th>
@@ -116,13 +117,14 @@
     <td><%# Eval("telephone")%></td>
     <td><%# getUserName(Eval("username").ToString())%></td>
     <td><%# Eval("add_time")%></td>
+    <td><%# Eval("pingJia_time")%></td>
     <td align="center"><%#getPriority(Eval("priority").ToString())%></td>
     <td align="center"><%#Eval("state").ToString().Trim() == "3" ? "完成" : "完成"%></td>
     <td align="center"><a href="order_edit.aspx?id=<%#Eval("id")%>&url=order_list_ok">查看详情</a></td>
   </tr>
 </ItemTemplate>
 <FooterTemplate>
-  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"13\">暂无记录</td></tr>" : ""%>
+  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"14\">暂无记录</td></tr>" : ""%>
 </table>
 </FooterTemplate>
 </asp:Repeater>

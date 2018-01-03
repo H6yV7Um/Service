@@ -97,7 +97,7 @@ public partial class order_order_list_going_person : BasePage
     /// </summary>
     public DataSet GetList(int channel_id, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
     {
-        string sql = "select id,title,address,update_name,update_time, name,telephone,username,add_time,priority,state  from dt_order where (username ='" + _userName + "' or update_name ='" + _userName + "')";
+        string sql = "select id,title,address,update_name,update_time,pingJia_time, name,telephone,username,add_time,priority,state  from dt_order where (username ='" + _userName + "' or update_name ='" + _userName + "')";
         if (strWhere.Trim() != "")
         {
             sql += " and" + strWhere;
@@ -185,7 +185,7 @@ public partial class order_order_list_going_person : BasePage
         {
             string _date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             //string sql = "update dt_order set state=3,update_name='" + _name + "',update_time='"+_date+"' where id='" + id + "'";
-            string sql = "update dt_order set state=3 where id='" + id + "'";
+            string sql = "update dt_order set state=3, updateComplete_time='" + _date + "' where id='" + id + "'";
             bool result = db.DB2Obj.Exec(sql);
             if (result)
             {

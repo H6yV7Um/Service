@@ -15,7 +15,7 @@
         .table-c table td{border-left:1px solid #000000;border-top:1px solid #000000;}
         .style1 { width: 100%; border: 1px solid #c0c0c0; }
      </style>
-     <style media=print type="text/css">
+     <style media="print" type="text/css">
         .noprint{visibility:hidden}
      </style>
 

@@ -31,10 +31,30 @@ public class Handler : IHttpHandler, System.Web.SessionState.IRequiresSessionSta
             case "getType":
                 getType(context);
                 break;
+            case "record":
+                getrecord(context);
+                break;
             default: //普通上传
                 UpLoadFile(context);
                 break;
         }
+    }
+    private void getrecord(HttpContext context)
+    {
+
+        int movieID = DTRequest.GetFormIntValue("movieID");
+        string username = DTRequest.GetFormString("username").Trim();
+        int state = DTRequest.GetFormIntValue("state");
+        string currenttimestate = DTRequest.GetFormString("currenttimestate").Trim();
+        if(db.getRecord(username,movieID,state,currenttimestate)== "0")
+        {
+            context.Response.Write("0");
+        }
+        else
+        {
+            context.Response.Write("1");
+        }
+
     }
     private void checkSession(HttpContext context)
     {

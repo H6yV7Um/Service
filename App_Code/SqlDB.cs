@@ -64,6 +64,31 @@ namespace DBWebService
             }
             return str;
         }
+        public string getRecord(string username,int movieID,int state,string currenttimestate)
+        {
+            string str = "0";
+            try
+            {
+                ResultDataSet Rs = new ResultDataSet();
+                database_inte db = new database_inte();
+                DateTime add_time = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                string sql = "insert into MovieLog (username,movieID,record_time,state,currenttime) values('" + username + "',"+movieID+",'"+ add_time + "',"+state+ ",'" + currenttimestate + "')";
+                if (db.DB2Obj.Exec(sql))
+                {
+                    str = "1";
+                }
+                else
+                {
+                    str = "0";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return str;
+        }
         public string checkNumber(string _user)
         {
             string str = "0";

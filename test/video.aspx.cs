@@ -68,7 +68,7 @@ public partial class test_video : System.Web.UI.Page
         }
         else
         {
-            btn_normal.Visible = false;
+            btn_normal.Visible = true;
         }
     }
 }

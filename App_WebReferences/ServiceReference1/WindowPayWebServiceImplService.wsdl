@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://impl.ws.service.ehospital.witontek.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.witontek.com/ehospital/" name="WindowPayWebServiceImplService" targetNamespace="http://impl.ws.service.ehospital.witontek.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.witontek.com/ehospital/" location="http://web.witontek.com/eHospital2/services/windowPayService?wsdl=IWindowPayWebService.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="WindowPayWebServiceImplServiceSoapBinding" type="ns1:IWindowPayWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="qryOrderStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="qryOrderStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="qryOrderStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scanRefund">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="scanRefund">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="scanRefundResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reverseOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="reverseOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reverseOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="microPay">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="microPay">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="microPayResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="qryPayStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="qryPayStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="qryPayStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="qryRefund">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="qryRefund">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="qryRefundResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WindowPayWebServiceImplService">
+    <wsdl:port name="WindowPayWebServiceImplPort" binding="tns:WindowPayWebServiceImplServiceSoapBinding">
+      <soap:address location="http://web.witontek.com/eHospital2/services/windowPayService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

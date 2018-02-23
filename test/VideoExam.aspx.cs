@@ -74,8 +74,10 @@ public partial class test_VideoExam : System.Web.UI.Page
             else
             {
                 //string SQL1 = "insert into TB_CuoTi(TID,UserName,MyDanAN ) values('" + ID + "','" + Session["username"].ToString() + "','" + str + "')";
-                //DBHelper.ExecSql(SQL1);
-
+                //DBHelper.ExecSql(SQL1);  
+                DateTime add_time1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                string sql1 = "insert into Movie_CuoTi (QBID,username,MovieID,answer) values(" + ID + ",'8108'," + 1000 + ",'" + str + "','" + add_time1 + "')";
+                db.DB2Obj.Exec(sql1);
             }
         }
 
@@ -124,7 +126,9 @@ public partial class test_VideoExam : System.Web.UI.Page
             {
                 //string SQL1 = "insert into TB_CuoTi(TID,UserName,MyDanAN ) values('" + ID + "','" + Session["username"].ToString() + "','" + strs + "')";
                 //DBHelper.ExecSql(SQL1);
-
+                DateTime add_time1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                string sql1 = "insert into Movie_CuoTi (QBID,username,MovieID,answer) values(" + ID + ",'8108'," + 1000 + ",'" + strs + "','" + add_time1 + "')";
+                db.DB2Obj.Exec(sql1);
             }
 
 
@@ -134,8 +138,11 @@ public partial class test_VideoExam : System.Web.UI.Page
 
         //string sql = "insert into TB_ChengJi(Xuehao ,KeMu,ChengJi) values('" + Session["username"].ToString() + "','" + stype + "','" + FenShu + "')";
         //DBHelper.ExecSql(sql);
-
-        Response.Write("<script>javascript:alert( '您的得分为：" + FenShu + "');</script>");
+        DateTime add_time = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+        string sql = "insert into Movie_Score (username,movieID,score,add_time) values('8108'," + 1000+",'" + FenShu + "','" + add_time + "')";
+        db.DB2Obj.Exec(sql);
+        //Response.Write("<script>window.showModalDialog('VideoList.aspx')</script>");
+        Response.Write("<script>javascript:alert( '您的得分为：" + FenShu + "');window.location='VideoList.aspx'</script>");
     }
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)

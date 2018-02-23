@@ -24,13 +24,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <p style="display:none;">
         <input id="Text1" type="text" value="<%=movieID%>" />
         <input id="Text2" type="text" value="<%=username%>" />
+            </p>
         <%--movieID: <%=movieID%>,
 			            username:<%=username%>,
 			            state:0,
                         record_time:<%=add_time%>,--%>
-    <div id="video" style="width: 600px; height: 400px; margin:0px auto"></div>
+    <div id="video" style="width: 600px; height: 400px; ">
+
+    </div>
         <script type="text/javascript" src="../scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
 			var videoObject = {
@@ -241,7 +245,7 @@
 			            }
 			        }
                 });
-			    window.location.href = 'Exam.aspx';
+			    window.location.href = 'VideoExam.aspx';
 			}
 
 			function mouseHandler(obj) {
@@ -384,8 +388,7 @@
 			<button type="button" onclick="player.changeConfig('config','timeScheduleAdjust',5)">看过的地方可以随意拖动</button>--%>
 		</p>
 		
-		<p>单独监听功能：</p>
-		<p class="handler">
+		<p class="handler" style="display:none;">
 			<span class="duration"></span><br />
 			<span class="playstate">播放状态：</span><br />
 			<span class="seekstate">跳转状态:无</span><br />
@@ -403,10 +406,10 @@
 			<span class="screenshot">监听截图功能（截图功能需要视频权限）</span>
           
 		</p>
-        <a href="../upload/movie/1.mp4">观看1</a>
+       <%-- <a href="../upload/movie/1.mp4">观看1</a>
         <a href="../upload/movie/11.mp4">观看11</a>
         <a href="../upload/movie/2.mp4">观看2</a>
-        <a href="../upload/movie/3.mp4">观看3</a>
+        <a href="../upload/movie/3.mp4">观看3</a>--%>
     </form>
 </body>
 </html>

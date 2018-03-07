@@ -13,7 +13,7 @@
 		    $(function () {
 		        $('#container').highcharts({
 		            chart: {
-		                type: 'column'
+		                type: 'pie'
 		            },
 		            title: {
 		                text: '按人员工单统计（已完成）'

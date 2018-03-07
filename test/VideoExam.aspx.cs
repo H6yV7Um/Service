@@ -16,8 +16,9 @@ public partial class test_VideoExam : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            int id = Convert.ToInt32(Request.QueryString["id"]);
             ResultDataSet Rs = new ResultDataSet();
-            string strSQL = "select * from Movie_QuestionBank where QuestionsType='单选' and MovieID=1000 ";
+            string strSQL = "select * from Movie_QuestionBank where QuestionsType='单选' and MovieID="+id+" ";
             db.DB2Obj.GetRs(strSQL, out Rs);
             DataSet ds = ((DataSet)Rs);
             this.GridView1.DataSource = ds;
@@ -25,7 +26,7 @@ public partial class test_VideoExam : System.Web.UI.Page
 
 
             ResultDataSet Rs2 = new ResultDataSet();
-            string strSQL2 = "select * from Movie_QuestionBank where QuestionsType='多选' and MovieID=1000 ";
+            string strSQL2 = "select * from Movie_QuestionBank where QuestionsType='多选' and MovieID=" + id + " ";
             db.DB2Obj.GetRs(strSQL2, out Rs2);
             DataSet ds2 = ((DataSet)Rs2);
             this.GridView2.DataSource = ds2;

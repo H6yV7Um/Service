@@ -29,24 +29,27 @@ public partial class test_Wechart : System.Web.UI.Page
         
         string hospital_id = "syzyyadmin";
         string hospital_area_id = "";
-        string auth_code = "134727187749422289";
+        string auth_code = "134816135371332203";
         string order_amount = "0.01";
         string biz_id = Guid.NewGuid().ToString();
         string pay_type = "wechatScan";
         string data_src = "hisSrc";
         string cashier_id = "1000001（张三）";
-        string sign = "92278c4d91304ca383a9e4c9dfe80b44";
+        string sign = "92278c4d91304ca383a9e4c9dfe80b44"; //92278c4d91304ca383a9e4c9dfe80b44
         string JsonStr = MicroPay(hospital_id, hospital_area_id, auth_code, order_amount, biz_id, pay_type, data_src, cashier_id, sign);
         JObject jo = (JObject)JsonConvert.DeserializeObject(JsonStr);
         string zone = jo["result"].ToString();
         string zone_en = jo["message"].ToString();
-        if (jo["data"]!=null)
+        if (jo["data"] != null)
         {
             string signs = jo["data"]["sign"].ToString();
-            Response.Write(signs+"!!!");
+            Response.Write(signs + "!!!");
         }
         Response.Write(zone);
         Label1.Text = JsonStr;
+        TextBox1.Text = biz_id;
+
+        //{"message":"操作成功","result":"SUCCESS","data":{"sign":"DEF0DD808AE9D9D3FF454A13E73C473A","code_message":"用户支付中，需要输入密码","code":"USERPAYING"}}
         //{"message":"操作成功","result":"SUCCESS","data":{"sign":"E48189F215455D306774C726BF63BDA9","code_message":"授权码过期或无效","code":"AUTH_CODE_ERROR"}}
         //Label1.Text = JsonStr;
         //JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -137,7 +140,9 @@ public partial class test_Wechart : System.Web.UI.Page
         {
             if (!String.IsNullOrEmpty(hospital_id) && !String.IsNullOrEmpty(auth_code) && !String.IsNullOrEmpty(order_amount) && !String.IsNullOrEmpty(biz_id) && !String.IsNullOrEmpty(pay_type) && !String.IsNullOrEmpty(data_src) && !String.IsNullOrEmpty(sign))
             {
-                ServiceReference1.WindowPayWebServiceClient _client = new ServiceReference1.WindowPayWebServiceClient();
+                //ServiceReference2.Service1SoapClient _client2 = new ServiceReference2.Service1SoapClient();
+                //return _client2.MicroPay(hospital_id, hospital_area_id, auth_code, order_amount, biz_id, pay_type, data_src, cashier_id, sign);
+                ServiceReference3.WindowPayWebServiceClient _client = new ServiceReference3.WindowPayWebServiceClient();
                 IDictionary<string, string> para = new Dictionary<string, string>();
                 para.Add("hospital_id", hospital_id);
                 para.Add("hospital_area_id", hospital_area_id);
@@ -150,6 +155,7 @@ public partial class test_Wechart : System.Web.UI.Page
                 string signs = GetMD5Key(para, sign);//B9EB02AAD7DAB96B58A0D34CC2E12952
                 string result = "{\"hospital_id\":\"" + hospital_id + "\",\"hospital_area_id\":\"" + hospital_area_id + "\",\"auth_code\":\"" + auth_code + "\",\"order_amount\":\"" + order_amount + "\",\"biz_id\":\"" + biz_id + "\",\"pay_type\":\"" + pay_type + "\",\"data_src\":\"" + data_src + "\",\"cashier_id\":\"" + cashier_id + "\",\"sign\":\"" + signs + "\"}";
                 return _client.microPay(result);
+
             }
             return "";
         }
@@ -161,4 +167,18 @@ public partial class test_Wechart : System.Web.UI.Page
         
     }
 
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        string biz_id= TextBox1.Text.ToString(); //1a995119c725431285c04d647109d05f1
+        string sign = "92278c4d91304ca383a9e4c9dfe80b44";
+        IDictionary<string, string> para = new Dictionary<string, string>();
+        para.Add("hospital_id", "syzyyadmin");
+        para.Add("biz_id", biz_id);
+        string signs = GetMD5Key(para, sign);
+        ServiceReference1.WindowPayWebServiceClient _client = new ServiceReference1.WindowPayWebServiceClient();
+        string json = "{\"hospital_id\":\"syzyyadmin\",\"biz_id\":\""+ biz_id + "\",\"sign\":\"" + signs+"\"}";
+        string s = _client.qryPayStatus(json);
+        Label2.Text = s;
+    }
 }

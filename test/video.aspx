@@ -223,7 +223,7 @@
 			function endedHandler() {
 			    changeText('.endedstate', '播放结束');
 			    alert("播放结束了，单击“确定”请开始答题！");
-			    
+			    var id = $('#Text1').val();
                 $.ajax({
 			        url: '../tools/Handler.ashx?action=record',
 			        type: 'post',
@@ -245,7 +245,7 @@
 			            }
 			        }
                 });
-			    window.location.href = 'VideoExam.aspx';
+			    window.location.href = 'VideoExam.aspx?id='+id;
 			}
 
 			function mouseHandler(obj) {

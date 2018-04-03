@@ -2,6 +2,193 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.dlnsoft.com/" xmlns:s1="http://www.dlnsoft.com/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.dlnsoft.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.dlnsoft.com/">
+      <s:element name="GetCurrInHosp_ByDiag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrInHosp_ByDiagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrInHosp_ByDiagResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrInHosp_ByDiag_Item">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiagOrgID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrInHosp_ByDiag_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrInHosp_ByDiag_ItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOutHospNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOutHospNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOutHospNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgOutHospNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgOutHospNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgOutHospNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOutHospNum_Item">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOutHospNum_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOutHospNum_ItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgOutHospNum_Item">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgOutHospNum_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgOutHospNum_ItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrLeaveHospNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrLeaveHospNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrLeaveHospNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgLeaveHospNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgLeaveHospNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgLeaveHospNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrLeaveHospNum_Item">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrLeaveHospNum_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrLeaveHospNum_ItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgLeaveHospNum_Item">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrOrgLeaveHospNum_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgLeaveHospNum_ItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetCurrDayInHospNum">
         <s:complexType>
           <s:sequence>
@@ -437,6 +624,42 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetNurOrdersTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNurOrdersTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNurOrdersTestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNurOrdersControl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialnumberAndOrdID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNurOrdersControlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNurOrdersControlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="NursingExec">
         <s:complexType>
           <s:sequence>
@@ -449,6 +672,22 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="NursingExecResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NursingExec_EMPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialnumberAndOrdID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NursingExec_EMPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NursingExec_EMPIDResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -652,6 +891,29 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetITEMINFOResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="patiID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderInfoResult">
               <s:complexType>
                 <s:sequence>
                   <s:element ref="s:schema" />
@@ -881,6 +1143,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="findAllReportByPatiID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PatiID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BegDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findAllReportByPatiIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findAllReportByPatiIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="findCheckReport">
         <s:complexType>
           <s:sequence>
@@ -998,7 +1275,6 @@
             <s:element minOccurs="0" maxOccurs="1" name="auth_code" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="order_amount" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="biz_id" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pay_type" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="data_src" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="cashier_id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="sign" type="s:string" />
@@ -1009,6 +1285,45 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="MicroPayResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MicroPayQry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hospital_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="biz_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sign" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MicroPayQryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MicroPayQryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hospital_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totle_amt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="visit_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patient_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="real_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id_card" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data_src" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="biz_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pay_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sign" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOrderResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1140,6 +1455,23 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetOrdInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSTOrdInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSTOrdInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSTOrdInfoResult">
               <s:complexType>
                 <s:sequence>
                   <s:element ref="s:schema" />
@@ -1404,6 +1736,49 @@
                 </s:sequence>
               </s:complexType>
             </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeartWJZ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applyID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="birthDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inspect" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applyOrg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="age" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApplyTypeID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeartWJZResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HeartWJZResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serialnumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="addtime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pdffiles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patiID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPDFResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1701,6 +2076,41 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetPatiInfoBaseByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatiInfoBaseByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatiInfoBaseByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmpImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmpImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmpImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetCurrInHospNum">
         <s:complexType>
           <s:sequence>
@@ -1752,194 +2162,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetCurrInHosp_ByDiag">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrInHosp_ByDiagResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrInHosp_ByDiagResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrInHosp_ByDiag_Item">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="DiagOrgID" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrInHosp_ByDiag_ItemResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrInHosp_ByDiag_ItemResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOutHospNum">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOutHospNumResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOutHospNumResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgOutHospNum">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgOutHospNumResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgOutHospNumResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOutHospNum_Item">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOutHospNum_ItemResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOutHospNum_ItemResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgOutHospNum_Item">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgOutHospNum_ItemResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgOutHospNum_ItemResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrLeaveHospNum">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrLeaveHospNumResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrLeaveHospNumResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgLeaveHospNum">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgLeaveHospNumResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgLeaveHospNumResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrLeaveHospNum_Item">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrLeaveHospNum_ItemResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrLeaveHospNum_ItemResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgLeaveHospNum_Item">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="WSID" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetCurrOrgLeaveHospNum_ItemResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCurrOrgLeaveHospNum_ItemResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="string" nillable="true" type="s:string" />
       <s:element name="DataSet" nillable="true">
         <s:complexType>
           <s:sequence>
@@ -1948,6 +2170,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
       <s:element name="boolean" type="s:boolean" />
       <s:element name="base64Binary" nillable="true" type="s:base64Binary" />
     </s:schema>
@@ -1964,6 +2187,66 @@
       </s:complexType>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetCurrInHosp_ByDiagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiag" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrInHosp_ByDiagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiagResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrInHosp_ByDiag_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiag_Item" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrInHosp_ByDiag_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiag_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOutHospNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrOutHospNum" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOutHospNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrOutHospNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgOutHospNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNum" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgOutHospNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOutHospNum_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrOutHospNum_Item" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOutHospNum_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrOutHospNum_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgOutHospNum_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNum_Item" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgOutHospNum_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNum_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrLeaveHospNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNum" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrLeaveHospNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgLeaveHospNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNum" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgLeaveHospNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrLeaveHospNum_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNum_Item" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrLeaveHospNum_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNum_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNum_Item" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNum_ItemResponse" />
+  </wsdl:message>
   <wsdl:message name="GetCurrDayInHospNumSoapIn">
     <wsdl:part name="parameters" element="tns:GetCurrDayInHospNum" />
   </wsdl:message>
@@ -2102,11 +2385,29 @@
   <wsdl:message name="GetNurOrdersSoapOut">
     <wsdl:part name="parameters" element="tns:GetNurOrdersResponse" />
   </wsdl:message>
+  <wsdl:message name="GetNurOrdersTestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNurOrdersTest" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersTestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNurOrdersTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersControlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNurOrdersControl" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersControlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNurOrdersControlResponse" />
+  </wsdl:message>
   <wsdl:message name="NursingExecSoapIn">
     <wsdl:part name="parameters" element="tns:NursingExec" />
   </wsdl:message>
   <wsdl:message name="NursingExecSoapOut">
     <wsdl:part name="parameters" element="tns:NursingExecResponse" />
+  </wsdl:message>
+  <wsdl:message name="NursingExec_EMPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:NursingExec_EMPID" />
+  </wsdl:message>
+  <wsdl:message name="NursingExec_EMPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:NursingExec_EMPIDResponse" />
   </wsdl:message>
   <wsdl:message name="GetEvaluationSheetCateByAdminSoapIn">
     <wsdl:part name="parameters" element="tns:GetEvaluationSheetCateByAdmin" />
@@ -2167,6 +2468,12 @@
   </wsdl:message>
   <wsdl:message name="GetITEMINFOSoapOut">
     <wsdl:part name="parameters" element="tns:GetITEMINFOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderInfoResponse" />
   </wsdl:message>
   <wsdl:message name="GetHospInfoSoapIn">
     <wsdl:part name="parameters" element="tns:GetHospInfo" />
@@ -2252,6 +2559,12 @@
   <wsdl:message name="findAllReportSoapOut">
     <wsdl:part name="parameters" element="tns:findAllReportResponse" />
   </wsdl:message>
+  <wsdl:message name="findAllReportByPatiIDSoapIn">
+    <wsdl:part name="parameters" element="tns:findAllReportByPatiID" />
+  </wsdl:message>
+  <wsdl:message name="findAllReportByPatiIDSoapOut">
+    <wsdl:part name="parameters" element="tns:findAllReportByPatiIDResponse" />
+  </wsdl:message>
   <wsdl:message name="findCheckReportSoapIn">
     <wsdl:part name="parameters" element="tns:findCheckReport" />
   </wsdl:message>
@@ -2299,6 +2612,18 @@
   </wsdl:message>
   <wsdl:message name="MicroPaySoapOut">
     <wsdl:part name="parameters" element="tns:MicroPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="MicroPayQrySoapIn">
+    <wsdl:part name="parameters" element="tns:MicroPayQry" />
+  </wsdl:message>
+  <wsdl:message name="MicroPayQrySoapOut">
+    <wsdl:part name="parameters" element="tns:MicroPayQryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOrderResponse" />
   </wsdl:message>
   <wsdl:message name="ITEMIINFOSoapIn">
     <wsdl:part name="parameters" element="tns:ITEMIINFO" />
@@ -2365,6 +2690,12 @@
   </wsdl:message>
   <wsdl:message name="GetOrdInfoSoapOut">
     <wsdl:part name="parameters" element="tns:GetOrdInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSTOrdInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSTOrdInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSTOrdInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSTOrdInfoResponse" />
   </wsdl:message>
   <wsdl:message name="GetDrugInfoSoapIn">
     <wsdl:part name="parameters" element="tns:GetDrugInfo" />
@@ -2455,6 +2786,18 @@
   </wsdl:message>
   <wsdl:message name="GetAllInpatientSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllInpatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="HeartWJZSoapIn">
+    <wsdl:part name="parameters" element="tns:HeartWJZ" />
+  </wsdl:message>
+  <wsdl:message name="HeartWJZSoapOut">
+    <wsdl:part name="parameters" element="tns:HeartWJZResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPDF" />
+  </wsdl:message>
+  <wsdl:message name="AddPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPDFResponse" />
   </wsdl:message>
   <wsdl:message name="GetPacsInfoSoapIn">
     <wsdl:part name="parameters" element="tns:GetPacsInfo" />
@@ -2552,6 +2895,18 @@
   <wsdl:message name="GetPatiInfoBaseSoapOut">
     <wsdl:part name="parameters" element="tns:GetPatiInfoBaseResponse" />
   </wsdl:message>
+  <wsdl:message name="GetPatiInfoBaseByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatiInfoBaseByID" />
+  </wsdl:message>
+  <wsdl:message name="GetPatiInfoBaseByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatiInfoBaseByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmpImage" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmpImageResponse" />
+  </wsdl:message>
   <wsdl:message name="GetCurrInHospNumSoapIn">
     <wsdl:part name="parameters" element="tns:GetCurrInHospNum" />
   </wsdl:message>
@@ -2570,65 +2925,70 @@
   <wsdl:message name="GetCurrOrgInHospNum_ItemSoapOut">
     <wsdl:part name="parameters" element="tns:GetCurrOrgInHospNum_ItemResponse" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiagSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiag" />
+  <wsdl:message name="GetCurrInHosp_ByDiagHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiagSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiagResponse" />
+  <wsdl:message name="GetCurrInHosp_ByDiagHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiag_ItemSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiag_Item" />
+  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="DiagOrgID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiag_ItemSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrInHosp_ByDiag_ItemResponse" />
+  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNumSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrOutHospNum" />
+  <wsdl:message name="GetCurrOutHospNumHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNumSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrOutHospNumResponse" />
+  <wsdl:message name="GetCurrOutHospNumHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNumSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNum" />
+  <wsdl:message name="GetCurrOrgOutHospNumHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNumSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNumResponse" />
+  <wsdl:message name="GetCurrOrgOutHospNumHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNum_ItemSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrOutHospNum_Item" />
+  <wsdl:message name="GetCurrOutHospNum_ItemHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNum_ItemSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrOutHospNum_ItemResponse" />
+  <wsdl:message name="GetCurrOutHospNum_ItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNum_ItemSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNum_Item" />
+  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNum_ItemSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgOutHospNum_ItemResponse" />
+  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNumSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNum" />
+  <wsdl:message name="GetCurrLeaveHospNumHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNumSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNumResponse" />
+  <wsdl:message name="GetCurrLeaveHospNumHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNumSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNum" />
+  <wsdl:message name="GetCurrOrgLeaveHospNumHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNumSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNumResponse" />
+  <wsdl:message name="GetCurrOrgLeaveHospNumHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNum_ItemSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNum_Item" />
+  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNum_ItemSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrLeaveHospNum_ItemResponse" />
+  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNum_Item" />
+  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCurrOrgLeaveHospNum_ItemResponse" />
+  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
   <wsdl:message name="GetCurrDayInHospNumHttpGetIn">
     <wsdl:part name="Key" type="s:string" />
@@ -2799,11 +3159,32 @@
   <wsdl:message name="GetNurOrdersHttpGetOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
+  <wsdl:message name="GetNurOrdersTestHttpGetIn">
+    <wsdl:part name="ItemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersTestHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersControlHttpGetIn">
+    <wsdl:part name="empID" type="s:string" />
+    <wsdl:part name="serialnumberAndOrdID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersControlHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NursingExecHttpGetIn">
     <wsdl:part name="Key" type="s:string" />
     <wsdl:part name="serialnumberAndOrdID" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NursingExecHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NursingExec_EMPIDHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="serialnumberAndOrdID" type="s:string" />
+    <wsdl:part name="empID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NursingExec_EMPIDHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="GetEvaluationSheetCateByAdminHttpGetIn">
@@ -2871,6 +3252,14 @@
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetITEMINFOHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderInfoHttpGetIn">
+    <wsdl:part name="patiID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderInfoHttpGetOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
   <wsdl:message name="GetHospInfoHttpGetIn" />
@@ -2984,6 +3373,13 @@
   <wsdl:message name="findAllReportHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="findAllReportByPatiIDHttpGetIn">
+    <wsdl:part name="PatiID" type="s:string" />
+    <wsdl:part name="BegDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="findAllReportByPatiIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="findCheckReportHttpGetIn">
     <wsdl:part name="CardID" type="s:string" />
     <wsdl:part name="BegDate" type="s:string" />
@@ -3043,12 +3439,34 @@
     <wsdl:part name="auth_code" type="s:string" />
     <wsdl:part name="order_amount" type="s:string" />
     <wsdl:part name="biz_id" type="s:string" />
-    <wsdl:part name="pay_type" type="s:string" />
     <wsdl:part name="data_src" type="s:string" />
     <wsdl:part name="cashier_id" type="s:string" />
     <wsdl:part name="sign" type="s:string" />
   </wsdl:message>
   <wsdl:message name="MicroPayHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MicroPayQryHttpGetIn">
+    <wsdl:part name="hospital_id" type="s:string" />
+    <wsdl:part name="biz_id" type="s:string" />
+    <wsdl:part name="sign" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MicroPayQryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderHttpGetIn">
+    <wsdl:part name="hospital_id" type="s:string" />
+    <wsdl:part name="totle_amt" type="s:string" />
+    <wsdl:part name="visit_id" type="s:string" />
+    <wsdl:part name="patient_id" type="s:string" />
+    <wsdl:part name="real_name" type="s:string" />
+    <wsdl:part name="id_card" type="s:string" />
+    <wsdl:part name="data_src" type="s:string" />
+    <wsdl:part name="biz_id" type="s:string" />
+    <wsdl:part name="pay_type" type="s:string" />
+    <wsdl:part name="sign" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="ITEMIINFOHttpGetIn" />
@@ -3104,6 +3522,10 @@
   </wsdl:message>
   <wsdl:message name="GetOrdInfoHttpGetIn" />
   <wsdl:message name="GetOrdInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSTOrdInfoHttpGetIn" />
+  <wsdl:message name="GetSTOrdInfoHttpGetOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
   <wsdl:message name="GetDrugInfoHttpGetIn" />
@@ -3183,6 +3605,33 @@
   <wsdl:message name="GetAllInpatientHttpGetIn" />
   <wsdl:message name="GetAllInpatientHttpGetOut">
     <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HeartWJZHttpGetIn">
+    <wsdl:part name="applyID" type="s:string" />
+    <wsdl:part name="patientID" type="s:string" />
+    <wsdl:part name="patientName" type="s:string" />
+    <wsdl:part name="sex" type="s:string" />
+    <wsdl:part name="birthDate" type="s:string" />
+    <wsdl:part name="cardID" type="s:string" />
+    <wsdl:part name="inspect" type="s:string" />
+    <wsdl:part name="applyOrg" type="s:string" />
+    <wsdl:part name="itemName" type="s:string" />
+    <wsdl:part name="reportDate" type="s:string" />
+    <wsdl:part name="reportDoc" type="s:string" />
+    <wsdl:part name="age" type="s:string" />
+    <wsdl:part name="ApplyTypeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeartWJZHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPDFHttpGetIn">
+    <wsdl:part name="serialnumber" type="s:string" />
+    <wsdl:part name="addtime" type="s:string" />
+    <wsdl:part name="pdffiles" type="s:string" />
+    <wsdl:part name="patiID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="GetPacsInfoHttpGetIn">
     <wsdl:part name="InpatiID" type="s:string" />
@@ -3294,6 +3743,18 @@
   <wsdl:message name="GetPatiInfoBaseHttpGetOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
+  <wsdl:message name="GetPatiInfoBaseByIDHttpGetIn">
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPatiInfoBaseByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpImageHttpGetIn">
+    <wsdl:part name="empID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="GetCurrInHospNumHttpGetIn">
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
@@ -3314,69 +3775,69 @@
   <wsdl:message name="GetCurrOrgInHospNum_ItemHttpGetOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiagHttpGetIn">
+  <wsdl:message name="GetCurrInHosp_ByDiagHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiagHttpGetOut">
+  <wsdl:message name="GetCurrInHosp_ByDiagHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpGetIn">
+  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
     <wsdl:part name="DiagOrgID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpGetOut">
+  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNumHttpGetIn">
+  <wsdl:message name="GetCurrOutHospNumHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNumHttpGetOut">
+  <wsdl:message name="GetCurrOutHospNumHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNumHttpGetIn">
+  <wsdl:message name="GetCurrOrgOutHospNumHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
     <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNumHttpGetOut">
+  <wsdl:message name="GetCurrOrgOutHospNumHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNum_ItemHttpGetIn">
+  <wsdl:message name="GetCurrOutHospNum_ItemHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNum_ItemHttpGetOut">
+  <wsdl:message name="GetCurrOutHospNum_ItemHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpGetIn">
+  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
     <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpGetOut">
+  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNumHttpGetIn">
+  <wsdl:message name="GetCurrLeaveHospNumHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNumHttpGetOut">
+  <wsdl:message name="GetCurrLeaveHospNumHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNumHttpGetIn">
+  <wsdl:message name="GetCurrOrgLeaveHospNumHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
     <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNumHttpGetOut">
+  <wsdl:message name="GetCurrOrgLeaveHospNumHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpGetIn">
+  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpGetOut">
+  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpGetIn">
+  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
     <wsdl:part name="WSID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpGetOut">
+  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
   <wsdl:message name="GetCurrDayInHospNumHttpPostIn">
@@ -3548,11 +4009,32 @@
   <wsdl:message name="GetNurOrdersHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
+  <wsdl:message name="GetNurOrdersTestHttpPostIn">
+    <wsdl:part name="ItemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersTestHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersControlHttpPostIn">
+    <wsdl:part name="empID" type="s:string" />
+    <wsdl:part name="serialnumberAndOrdID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNurOrdersControlHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NursingExecHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
     <wsdl:part name="serialnumberAndOrdID" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NursingExecHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NursingExec_EMPIDHttpPostIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="serialnumberAndOrdID" type="s:string" />
+    <wsdl:part name="empID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NursingExec_EMPIDHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="GetEvaluationSheetCateByAdminHttpPostIn">
@@ -3620,6 +4102,14 @@
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetITEMINFOHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderInfoHttpPostIn">
+    <wsdl:part name="patiID" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderInfoHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
   <wsdl:message name="GetHospInfoHttpPostIn" />
@@ -3733,6 +4223,13 @@
   <wsdl:message name="findAllReportHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="findAllReportByPatiIDHttpPostIn">
+    <wsdl:part name="PatiID" type="s:string" />
+    <wsdl:part name="BegDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="findAllReportByPatiIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="findCheckReportHttpPostIn">
     <wsdl:part name="CardID" type="s:string" />
     <wsdl:part name="BegDate" type="s:string" />
@@ -3792,12 +4289,34 @@
     <wsdl:part name="auth_code" type="s:string" />
     <wsdl:part name="order_amount" type="s:string" />
     <wsdl:part name="biz_id" type="s:string" />
-    <wsdl:part name="pay_type" type="s:string" />
     <wsdl:part name="data_src" type="s:string" />
     <wsdl:part name="cashier_id" type="s:string" />
     <wsdl:part name="sign" type="s:string" />
   </wsdl:message>
   <wsdl:message name="MicroPayHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MicroPayQryHttpPostIn">
+    <wsdl:part name="hospital_id" type="s:string" />
+    <wsdl:part name="biz_id" type="s:string" />
+    <wsdl:part name="sign" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MicroPayQryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderHttpPostIn">
+    <wsdl:part name="hospital_id" type="s:string" />
+    <wsdl:part name="totle_amt" type="s:string" />
+    <wsdl:part name="visit_id" type="s:string" />
+    <wsdl:part name="patient_id" type="s:string" />
+    <wsdl:part name="real_name" type="s:string" />
+    <wsdl:part name="id_card" type="s:string" />
+    <wsdl:part name="data_src" type="s:string" />
+    <wsdl:part name="biz_id" type="s:string" />
+    <wsdl:part name="pay_type" type="s:string" />
+    <wsdl:part name="sign" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="ITEMIINFOHttpPostIn" />
@@ -3853,6 +4372,10 @@
   </wsdl:message>
   <wsdl:message name="GetOrdInfoHttpPostIn" />
   <wsdl:message name="GetOrdInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSTOrdInfoHttpPostIn" />
+  <wsdl:message name="GetSTOrdInfoHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
   <wsdl:message name="GetDrugInfoHttpPostIn" />
@@ -3932,6 +4455,33 @@
   <wsdl:message name="GetAllInpatientHttpPostIn" />
   <wsdl:message name="GetAllInpatientHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HeartWJZHttpPostIn">
+    <wsdl:part name="applyID" type="s:string" />
+    <wsdl:part name="patientID" type="s:string" />
+    <wsdl:part name="patientName" type="s:string" />
+    <wsdl:part name="sex" type="s:string" />
+    <wsdl:part name="birthDate" type="s:string" />
+    <wsdl:part name="cardID" type="s:string" />
+    <wsdl:part name="inspect" type="s:string" />
+    <wsdl:part name="applyOrg" type="s:string" />
+    <wsdl:part name="itemName" type="s:string" />
+    <wsdl:part name="reportDate" type="s:string" />
+    <wsdl:part name="reportDoc" type="s:string" />
+    <wsdl:part name="age" type="s:string" />
+    <wsdl:part name="ApplyTypeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeartWJZHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPDFHttpPostIn">
+    <wsdl:part name="serialnumber" type="s:string" />
+    <wsdl:part name="addtime" type="s:string" />
+    <wsdl:part name="pdffiles" type="s:string" />
+    <wsdl:part name="patiID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="GetPacsInfoHttpPostIn">
     <wsdl:part name="InpatiID" type="s:string" />
@@ -4043,6 +4593,18 @@
   <wsdl:message name="GetPatiInfoBaseHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
+  <wsdl:message name="GetPatiInfoBaseByIDHttpPostIn">
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPatiInfoBaseByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpImageHttpPostIn">
+    <wsdl:part name="empID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="GetCurrInHospNumHttpPostIn">
     <wsdl:part name="Key" type="s:string" />
   </wsdl:message>
@@ -4063,72 +4625,47 @@
   <wsdl:message name="GetCurrOrgInHospNum_ItemHttpPostOut">
     <wsdl:part name="Body" element="tns:DataSet" />
   </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiagHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiagHttpPostOut">
-    <wsdl:part name="Body" element="tns:DataSet" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-    <wsdl:part name="DiagOrgID" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrInHosp_ByDiag_ItemHttpPostOut">
-    <wsdl:part name="Body" element="tns:DataSet" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNumHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNumHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNumHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-    <wsdl:part name="WSID" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNumHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNum_ItemHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOutHospNum_ItemHttpPostOut">
-    <wsdl:part name="Body" element="tns:DataSet" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-    <wsdl:part name="WSID" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgOutHospNum_ItemHttpPostOut">
-    <wsdl:part name="Body" element="tns:DataSet" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNumHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNumHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNumHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-    <wsdl:part name="WSID" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNumHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrLeaveHospNum_ItemHttpPostOut">
-    <wsdl:part name="Body" element="tns:DataSet" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpPostIn">
-    <wsdl:part name="Key" type="s:string" />
-    <wsdl:part name="WSID" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetCurrOrgLeaveHospNum_ItemHttpPostOut">
-    <wsdl:part name="Body" element="tns:DataSet" />
-  </wsdl:message>
   <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="GetCurrInHosp_ByDiag">
+      <wsdl:input message="tns:GetCurrInHosp_ByDiagSoapIn" />
+      <wsdl:output message="tns:GetCurrInHosp_ByDiagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
+      <wsdl:input message="tns:GetCurrInHosp_ByDiag_ItemSoapIn" />
+      <wsdl:output message="tns:GetCurrInHosp_ByDiag_ItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum">
+      <wsdl:input message="tns:GetCurrOutHospNumSoapIn" />
+      <wsdl:output message="tns:GetCurrOutHospNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum">
+      <wsdl:input message="tns:GetCurrOrgOutHospNumSoapIn" />
+      <wsdl:output message="tns:GetCurrOrgOutHospNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum_Item">
+      <wsdl:input message="tns:GetCurrOutHospNum_ItemSoapIn" />
+      <wsdl:output message="tns:GetCurrOutHospNum_ItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
+      <wsdl:input message="tns:GetCurrOrgOutHospNum_ItemSoapIn" />
+      <wsdl:output message="tns:GetCurrOrgOutHospNum_ItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum">
+      <wsdl:input message="tns:GetCurrLeaveHospNumSoapIn" />
+      <wsdl:output message="tns:GetCurrLeaveHospNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum">
+      <wsdl:input message="tns:GetCurrOrgLeaveHospNumSoapIn" />
+      <wsdl:output message="tns:GetCurrOrgLeaveHospNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum_Item">
+      <wsdl:input message="tns:GetCurrLeaveHospNum_ItemSoapIn" />
+      <wsdl:output message="tns:GetCurrLeaveHospNum_ItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
+      <wsdl:input message="tns:GetCurrOrgLeaveHospNum_ItemSoapIn" />
+      <wsdl:output message="tns:GetCurrOrgLeaveHospNum_ItemSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetCurrDayInHospNum">
       <wsdl:input message="tns:GetCurrDayInHospNumSoapIn" />
       <wsdl:output message="tns:GetCurrDayInHospNumSoapOut" />
@@ -4221,9 +4758,21 @@
       <wsdl:input message="tns:GetNurOrdersSoapIn" />
       <wsdl:output message="tns:GetNurOrdersSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersTest">
+      <wsdl:input message="tns:GetNurOrdersTestSoapIn" />
+      <wsdl:output message="tns:GetNurOrdersTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersControl">
+      <wsdl:input message="tns:GetNurOrdersControlSoapIn" />
+      <wsdl:output message="tns:GetNurOrdersControlSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="NursingExec">
       <wsdl:input message="tns:NursingExecSoapIn" />
       <wsdl:output message="tns:NursingExecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NursingExec_EMPID">
+      <wsdl:input message="tns:NursingExec_EMPIDSoapIn" />
+      <wsdl:output message="tns:NursingExec_EMPIDSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetEvaluationSheetCateByAdmin">
       <wsdl:input message="tns:GetEvaluationSheetCateByAdminSoapIn" />
@@ -4264,6 +4813,10 @@
     <wsdl:operation name="GetITEMINFO">
       <wsdl:input message="tns:GetITEMINFOSoapIn" />
       <wsdl:output message="tns:GetITEMINFOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <wsdl:input message="tns:GetOrderInfoSoapIn" />
+      <wsdl:output message="tns:GetOrderInfoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetHospInfo">
       <wsdl:input message="tns:GetHospInfoSoapIn" />
@@ -4321,6 +4874,10 @@
       <wsdl:input message="tns:findAllReportSoapIn" />
       <wsdl:output message="tns:findAllReportSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="findAllReportByPatiID">
+      <wsdl:input message="tns:findAllReportByPatiIDSoapIn" />
+      <wsdl:output message="tns:findAllReportByPatiIDSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="findCheckReport">
       <wsdl:input message="tns:findCheckReportSoapIn" />
       <wsdl:output message="tns:findCheckReportSoapOut" />
@@ -4352,6 +4909,14 @@
     <wsdl:operation name="MicroPay">
       <wsdl:input message="tns:MicroPaySoapIn" />
       <wsdl:output message="tns:MicroPaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MicroPayQry">
+      <wsdl:input message="tns:MicroPayQrySoapIn" />
+      <wsdl:output message="tns:MicroPayQrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <wsdl:input message="tns:CreateOrderSoapIn" />
+      <wsdl:output message="tns:CreateOrderSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ITEMIINFO">
       <wsdl:input message="tns:ITEMIINFOSoapIn" />
@@ -4396,6 +4961,10 @@
     <wsdl:operation name="GetOrdInfo">
       <wsdl:input message="tns:GetOrdInfoSoapIn" />
       <wsdl:output message="tns:GetOrdInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTOrdInfo">
+      <wsdl:input message="tns:GetSTOrdInfoSoapIn" />
+      <wsdl:output message="tns:GetSTOrdInfoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDrugInfo">
       <wsdl:input message="tns:GetDrugInfoSoapIn" />
@@ -4456,6 +5025,16 @@
     <wsdl:operation name="GetAllInpatient">
       <wsdl:input message="tns:GetAllInpatientSoapIn" />
       <wsdl:output message="tns:GetAllInpatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeartWJZ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">applyID:申请号，patientID:病人编码，patientName:病人姓名，sex：性别，birthDate：出生日期，cardID：卡号，inspect：检查结论，applyOrg：申请机构，itemName：检查项目，reportDate:报告日期，reportDoc:报告医生，age：年龄,ApplyTypeID:类别</wsdl:documentation>
+      <wsdl:input message="tns:HeartWJZSoapIn" />
+      <wsdl:output message="tns:HeartWJZSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPDF">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">serialnumber:住院流水号，addtime:当前时间，pdffiles:PDF文件,patiID:病人编码</wsdl:documentation>
+      <wsdl:input message="tns:AddPDFSoapIn" />
+      <wsdl:output message="tns:AddPDFSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetPacsInfo">
       <wsdl:input message="tns:GetPacsInfoSoapIn" />
@@ -4521,6 +5100,14 @@
       <wsdl:input message="tns:GetPatiInfoBaseSoapIn" />
       <wsdl:output message="tns:GetPatiInfoBaseSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetPatiInfoBaseByID">
+      <wsdl:input message="tns:GetPatiInfoBaseByIDSoapIn" />
+      <wsdl:output message="tns:GetPatiInfoBaseByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpImage">
+      <wsdl:input message="tns:GetEmpImageSoapIn" />
+      <wsdl:output message="tns:GetEmpImageSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetCurrInHospNum">
       <wsdl:input message="tns:GetCurrInHospNumSoapIn" />
       <wsdl:output message="tns:GetCurrInHospNumSoapOut" />
@@ -4533,48 +5120,48 @@
       <wsdl:input message="tns:GetCurrOrgInHospNum_ItemSoapIn" />
       <wsdl:output message="tns:GetCurrOrgInHospNum_ItemSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag">
-      <wsdl:input message="tns:GetCurrInHosp_ByDiagSoapIn" />
-      <wsdl:output message="tns:GetCurrInHosp_ByDiagSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
-      <wsdl:input message="tns:GetCurrInHosp_ByDiag_ItemSoapIn" />
-      <wsdl:output message="tns:GetCurrInHosp_ByDiag_ItemSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum">
-      <wsdl:input message="tns:GetCurrOutHospNumSoapIn" />
-      <wsdl:output message="tns:GetCurrOutHospNumSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum">
-      <wsdl:input message="tns:GetCurrOrgOutHospNumSoapIn" />
-      <wsdl:output message="tns:GetCurrOrgOutHospNumSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum_Item">
-      <wsdl:input message="tns:GetCurrOutHospNum_ItemSoapIn" />
-      <wsdl:output message="tns:GetCurrOutHospNum_ItemSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
-      <wsdl:input message="tns:GetCurrOrgOutHospNum_ItemSoapIn" />
-      <wsdl:output message="tns:GetCurrOrgOutHospNum_ItemSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum">
-      <wsdl:input message="tns:GetCurrLeaveHospNumSoapIn" />
-      <wsdl:output message="tns:GetCurrLeaveHospNumSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum">
-      <wsdl:input message="tns:GetCurrOrgLeaveHospNumSoapIn" />
-      <wsdl:output message="tns:GetCurrOrgLeaveHospNumSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum_Item">
-      <wsdl:input message="tns:GetCurrLeaveHospNum_ItemSoapIn" />
-      <wsdl:output message="tns:GetCurrLeaveHospNum_ItemSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
-      <wsdl:input message="tns:GetCurrOrgLeaveHospNum_ItemSoapIn" />
-      <wsdl:output message="tns:GetCurrOrgLeaveHospNum_ItemSoapOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="GetCurrInHosp_ByDiag">
+      <wsdl:input message="tns:GetCurrInHosp_ByDiagHttpGetIn" />
+      <wsdl:output message="tns:GetCurrInHosp_ByDiagHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
+      <wsdl:input message="tns:GetCurrInHosp_ByDiag_ItemHttpGetIn" />
+      <wsdl:output message="tns:GetCurrInHosp_ByDiag_ItemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum">
+      <wsdl:input message="tns:GetCurrOutHospNumHttpGetIn" />
+      <wsdl:output message="tns:GetCurrOutHospNumHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum">
+      <wsdl:input message="tns:GetCurrOrgOutHospNumHttpGetIn" />
+      <wsdl:output message="tns:GetCurrOrgOutHospNumHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum_Item">
+      <wsdl:input message="tns:GetCurrOutHospNum_ItemHttpGetIn" />
+      <wsdl:output message="tns:GetCurrOutHospNum_ItemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
+      <wsdl:input message="tns:GetCurrOrgOutHospNum_ItemHttpGetIn" />
+      <wsdl:output message="tns:GetCurrOrgOutHospNum_ItemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum">
+      <wsdl:input message="tns:GetCurrLeaveHospNumHttpGetIn" />
+      <wsdl:output message="tns:GetCurrLeaveHospNumHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum">
+      <wsdl:input message="tns:GetCurrOrgLeaveHospNumHttpGetIn" />
+      <wsdl:output message="tns:GetCurrOrgLeaveHospNumHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum_Item">
+      <wsdl:input message="tns:GetCurrLeaveHospNum_ItemHttpGetIn" />
+      <wsdl:output message="tns:GetCurrLeaveHospNum_ItemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
+      <wsdl:input message="tns:GetCurrOrgLeaveHospNum_ItemHttpGetIn" />
+      <wsdl:output message="tns:GetCurrOrgLeaveHospNum_ItemHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetCurrDayInHospNum">
       <wsdl:input message="tns:GetCurrDayInHospNumHttpGetIn" />
       <wsdl:output message="tns:GetCurrDayInHospNumHttpGetOut" />
@@ -4667,9 +5254,21 @@
       <wsdl:input message="tns:GetNurOrdersHttpGetIn" />
       <wsdl:output message="tns:GetNurOrdersHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersTest">
+      <wsdl:input message="tns:GetNurOrdersTestHttpGetIn" />
+      <wsdl:output message="tns:GetNurOrdersTestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersControl">
+      <wsdl:input message="tns:GetNurOrdersControlHttpGetIn" />
+      <wsdl:output message="tns:GetNurOrdersControlHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="NursingExec">
       <wsdl:input message="tns:NursingExecHttpGetIn" />
       <wsdl:output message="tns:NursingExecHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NursingExec_EMPID">
+      <wsdl:input message="tns:NursingExec_EMPIDHttpGetIn" />
+      <wsdl:output message="tns:NursingExec_EMPIDHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetEvaluationSheetCateByAdmin">
       <wsdl:input message="tns:GetEvaluationSheetCateByAdminHttpGetIn" />
@@ -4710,6 +5309,10 @@
     <wsdl:operation name="GetITEMINFO">
       <wsdl:input message="tns:GetITEMINFOHttpGetIn" />
       <wsdl:output message="tns:GetITEMINFOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <wsdl:input message="tns:GetOrderInfoHttpGetIn" />
+      <wsdl:output message="tns:GetOrderInfoHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetHospInfo">
       <wsdl:input message="tns:GetHospInfoHttpGetIn" />
@@ -4767,6 +5370,10 @@
       <wsdl:input message="tns:findAllReportHttpGetIn" />
       <wsdl:output message="tns:findAllReportHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="findAllReportByPatiID">
+      <wsdl:input message="tns:findAllReportByPatiIDHttpGetIn" />
+      <wsdl:output message="tns:findAllReportByPatiIDHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="findCheckReport">
       <wsdl:input message="tns:findCheckReportHttpGetIn" />
       <wsdl:output message="tns:findCheckReportHttpGetOut" />
@@ -4798,6 +5405,14 @@
     <wsdl:operation name="MicroPay">
       <wsdl:input message="tns:MicroPayHttpGetIn" />
       <wsdl:output message="tns:MicroPayHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MicroPayQry">
+      <wsdl:input message="tns:MicroPayQryHttpGetIn" />
+      <wsdl:output message="tns:MicroPayQryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <wsdl:input message="tns:CreateOrderHttpGetIn" />
+      <wsdl:output message="tns:CreateOrderHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="ITEMIINFO">
       <wsdl:input message="tns:ITEMIINFOHttpGetIn" />
@@ -4842,6 +5457,10 @@
     <wsdl:operation name="GetOrdInfo">
       <wsdl:input message="tns:GetOrdInfoHttpGetIn" />
       <wsdl:output message="tns:GetOrdInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTOrdInfo">
+      <wsdl:input message="tns:GetSTOrdInfoHttpGetIn" />
+      <wsdl:output message="tns:GetSTOrdInfoHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDrugInfo">
       <wsdl:input message="tns:GetDrugInfoHttpGetIn" />
@@ -4902,6 +5521,16 @@
     <wsdl:operation name="GetAllInpatient">
       <wsdl:input message="tns:GetAllInpatientHttpGetIn" />
       <wsdl:output message="tns:GetAllInpatientHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeartWJZ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">applyID:申请号，patientID:病人编码，patientName:病人姓名，sex：性别，birthDate：出生日期，cardID：卡号，inspect：检查结论，applyOrg：申请机构，itemName：检查项目，reportDate:报告日期，reportDoc:报告医生，age：年龄,ApplyTypeID:类别</wsdl:documentation>
+      <wsdl:input message="tns:HeartWJZHttpGetIn" />
+      <wsdl:output message="tns:HeartWJZHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPDF">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">serialnumber:住院流水号，addtime:当前时间，pdffiles:PDF文件,patiID:病人编码</wsdl:documentation>
+      <wsdl:input message="tns:AddPDFHttpGetIn" />
+      <wsdl:output message="tns:AddPDFHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetPacsInfo">
       <wsdl:input message="tns:GetPacsInfoHttpGetIn" />
@@ -4967,6 +5596,14 @@
       <wsdl:input message="tns:GetPatiInfoBaseHttpGetIn" />
       <wsdl:output message="tns:GetPatiInfoBaseHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetPatiInfoBaseByID">
+      <wsdl:input message="tns:GetPatiInfoBaseByIDHttpGetIn" />
+      <wsdl:output message="tns:GetPatiInfoBaseByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpImage">
+      <wsdl:input message="tns:GetEmpImageHttpGetIn" />
+      <wsdl:output message="tns:GetEmpImageHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetCurrInHospNum">
       <wsdl:input message="tns:GetCurrInHospNumHttpGetIn" />
       <wsdl:output message="tns:GetCurrInHospNumHttpGetOut" />
@@ -4979,48 +5616,48 @@
       <wsdl:input message="tns:GetCurrOrgInHospNum_ItemHttpGetIn" />
       <wsdl:output message="tns:GetCurrOrgInHospNum_ItemHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag">
-      <wsdl:input message="tns:GetCurrInHosp_ByDiagHttpGetIn" />
-      <wsdl:output message="tns:GetCurrInHosp_ByDiagHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
-      <wsdl:input message="tns:GetCurrInHosp_ByDiag_ItemHttpGetIn" />
-      <wsdl:output message="tns:GetCurrInHosp_ByDiag_ItemHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum">
-      <wsdl:input message="tns:GetCurrOutHospNumHttpGetIn" />
-      <wsdl:output message="tns:GetCurrOutHospNumHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum">
-      <wsdl:input message="tns:GetCurrOrgOutHospNumHttpGetIn" />
-      <wsdl:output message="tns:GetCurrOrgOutHospNumHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum_Item">
-      <wsdl:input message="tns:GetCurrOutHospNum_ItemHttpGetIn" />
-      <wsdl:output message="tns:GetCurrOutHospNum_ItemHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
-      <wsdl:input message="tns:GetCurrOrgOutHospNum_ItemHttpGetIn" />
-      <wsdl:output message="tns:GetCurrOrgOutHospNum_ItemHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum">
-      <wsdl:input message="tns:GetCurrLeaveHospNumHttpGetIn" />
-      <wsdl:output message="tns:GetCurrLeaveHospNumHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum">
-      <wsdl:input message="tns:GetCurrOrgLeaveHospNumHttpGetIn" />
-      <wsdl:output message="tns:GetCurrOrgLeaveHospNumHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum_Item">
-      <wsdl:input message="tns:GetCurrLeaveHospNum_ItemHttpGetIn" />
-      <wsdl:output message="tns:GetCurrLeaveHospNum_ItemHttpGetOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
-      <wsdl:input message="tns:GetCurrOrgLeaveHospNum_ItemHttpGetIn" />
-      <wsdl:output message="tns:GetCurrOrgLeaveHospNum_ItemHttpGetOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="GetCurrInHosp_ByDiag">
+      <wsdl:input message="tns:GetCurrInHosp_ByDiagHttpPostIn" />
+      <wsdl:output message="tns:GetCurrInHosp_ByDiagHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
+      <wsdl:input message="tns:GetCurrInHosp_ByDiag_ItemHttpPostIn" />
+      <wsdl:output message="tns:GetCurrInHosp_ByDiag_ItemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum">
+      <wsdl:input message="tns:GetCurrOutHospNumHttpPostIn" />
+      <wsdl:output message="tns:GetCurrOutHospNumHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum">
+      <wsdl:input message="tns:GetCurrOrgOutHospNumHttpPostIn" />
+      <wsdl:output message="tns:GetCurrOrgOutHospNumHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum_Item">
+      <wsdl:input message="tns:GetCurrOutHospNum_ItemHttpPostIn" />
+      <wsdl:output message="tns:GetCurrOutHospNum_ItemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
+      <wsdl:input message="tns:GetCurrOrgOutHospNum_ItemHttpPostIn" />
+      <wsdl:output message="tns:GetCurrOrgOutHospNum_ItemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum">
+      <wsdl:input message="tns:GetCurrLeaveHospNumHttpPostIn" />
+      <wsdl:output message="tns:GetCurrLeaveHospNumHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum">
+      <wsdl:input message="tns:GetCurrOrgLeaveHospNumHttpPostIn" />
+      <wsdl:output message="tns:GetCurrOrgLeaveHospNumHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum_Item">
+      <wsdl:input message="tns:GetCurrLeaveHospNum_ItemHttpPostIn" />
+      <wsdl:output message="tns:GetCurrLeaveHospNum_ItemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
+      <wsdl:input message="tns:GetCurrOrgLeaveHospNum_ItemHttpPostIn" />
+      <wsdl:output message="tns:GetCurrOrgLeaveHospNum_ItemHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetCurrDayInHospNum">
       <wsdl:input message="tns:GetCurrDayInHospNumHttpPostIn" />
       <wsdl:output message="tns:GetCurrDayInHospNumHttpPostOut" />
@@ -5113,9 +5750,21 @@
       <wsdl:input message="tns:GetNurOrdersHttpPostIn" />
       <wsdl:output message="tns:GetNurOrdersHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersTest">
+      <wsdl:input message="tns:GetNurOrdersTestHttpPostIn" />
+      <wsdl:output message="tns:GetNurOrdersTestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersControl">
+      <wsdl:input message="tns:GetNurOrdersControlHttpPostIn" />
+      <wsdl:output message="tns:GetNurOrdersControlHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="NursingExec">
       <wsdl:input message="tns:NursingExecHttpPostIn" />
       <wsdl:output message="tns:NursingExecHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NursingExec_EMPID">
+      <wsdl:input message="tns:NursingExec_EMPIDHttpPostIn" />
+      <wsdl:output message="tns:NursingExec_EMPIDHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetEvaluationSheetCateByAdmin">
       <wsdl:input message="tns:GetEvaluationSheetCateByAdminHttpPostIn" />
@@ -5156,6 +5805,10 @@
     <wsdl:operation name="GetITEMINFO">
       <wsdl:input message="tns:GetITEMINFOHttpPostIn" />
       <wsdl:output message="tns:GetITEMINFOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <wsdl:input message="tns:GetOrderInfoHttpPostIn" />
+      <wsdl:output message="tns:GetOrderInfoHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetHospInfo">
       <wsdl:input message="tns:GetHospInfoHttpPostIn" />
@@ -5213,6 +5866,10 @@
       <wsdl:input message="tns:findAllReportHttpPostIn" />
       <wsdl:output message="tns:findAllReportHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="findAllReportByPatiID">
+      <wsdl:input message="tns:findAllReportByPatiIDHttpPostIn" />
+      <wsdl:output message="tns:findAllReportByPatiIDHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="findCheckReport">
       <wsdl:input message="tns:findCheckReportHttpPostIn" />
       <wsdl:output message="tns:findCheckReportHttpPostOut" />
@@ -5244,6 +5901,14 @@
     <wsdl:operation name="MicroPay">
       <wsdl:input message="tns:MicroPayHttpPostIn" />
       <wsdl:output message="tns:MicroPayHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MicroPayQry">
+      <wsdl:input message="tns:MicroPayQryHttpPostIn" />
+      <wsdl:output message="tns:MicroPayQryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <wsdl:input message="tns:CreateOrderHttpPostIn" />
+      <wsdl:output message="tns:CreateOrderHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="ITEMIINFO">
       <wsdl:input message="tns:ITEMIINFOHttpPostIn" />
@@ -5288,6 +5953,10 @@
     <wsdl:operation name="GetOrdInfo">
       <wsdl:input message="tns:GetOrdInfoHttpPostIn" />
       <wsdl:output message="tns:GetOrdInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTOrdInfo">
+      <wsdl:input message="tns:GetSTOrdInfoHttpPostIn" />
+      <wsdl:output message="tns:GetSTOrdInfoHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDrugInfo">
       <wsdl:input message="tns:GetDrugInfoHttpPostIn" />
@@ -5348,6 +6017,16 @@
     <wsdl:operation name="GetAllInpatient">
       <wsdl:input message="tns:GetAllInpatientHttpPostIn" />
       <wsdl:output message="tns:GetAllInpatientHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeartWJZ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">applyID:申请号，patientID:病人编码，patientName:病人姓名，sex：性别，birthDate：出生日期，cardID：卡号，inspect：检查结论，applyOrg：申请机构，itemName：检查项目，reportDate:报告日期，reportDoc:报告医生，age：年龄,ApplyTypeID:类别</wsdl:documentation>
+      <wsdl:input message="tns:HeartWJZHttpPostIn" />
+      <wsdl:output message="tns:HeartWJZHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPDF">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">serialnumber:住院流水号，addtime:当前时间，pdffiles:PDF文件,patiID:病人编码</wsdl:documentation>
+      <wsdl:input message="tns:AddPDFHttpPostIn" />
+      <wsdl:output message="tns:AddPDFHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetPacsInfo">
       <wsdl:input message="tns:GetPacsInfoHttpPostIn" />
@@ -5413,6 +6092,14 @@
       <wsdl:input message="tns:GetPatiInfoBaseHttpPostIn" />
       <wsdl:output message="tns:GetPatiInfoBaseHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetPatiInfoBaseByID">
+      <wsdl:input message="tns:GetPatiInfoBaseByIDHttpPostIn" />
+      <wsdl:output message="tns:GetPatiInfoBaseByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpImage">
+      <wsdl:input message="tns:GetEmpImageHttpPostIn" />
+      <wsdl:output message="tns:GetEmpImageHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetCurrInHospNum">
       <wsdl:input message="tns:GetCurrInHospNumHttpPostIn" />
       <wsdl:output message="tns:GetCurrInHospNumHttpPostOut" />
@@ -5425,49 +6112,99 @@
       <wsdl:input message="tns:GetCurrOrgInHospNum_ItemHttpPostIn" />
       <wsdl:output message="tns:GetCurrOrgInHospNum_ItemHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag">
-      <wsdl:input message="tns:GetCurrInHosp_ByDiagHttpPostIn" />
-      <wsdl:output message="tns:GetCurrInHosp_ByDiagHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
-      <wsdl:input message="tns:GetCurrInHosp_ByDiag_ItemHttpPostIn" />
-      <wsdl:output message="tns:GetCurrInHosp_ByDiag_ItemHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum">
-      <wsdl:input message="tns:GetCurrOutHospNumHttpPostIn" />
-      <wsdl:output message="tns:GetCurrOutHospNumHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum">
-      <wsdl:input message="tns:GetCurrOrgOutHospNumHttpPostIn" />
-      <wsdl:output message="tns:GetCurrOrgOutHospNumHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum_Item">
-      <wsdl:input message="tns:GetCurrOutHospNum_ItemHttpPostIn" />
-      <wsdl:output message="tns:GetCurrOutHospNum_ItemHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
-      <wsdl:input message="tns:GetCurrOrgOutHospNum_ItemHttpPostIn" />
-      <wsdl:output message="tns:GetCurrOrgOutHospNum_ItemHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum">
-      <wsdl:input message="tns:GetCurrLeaveHospNumHttpPostIn" />
-      <wsdl:output message="tns:GetCurrLeaveHospNumHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum">
-      <wsdl:input message="tns:GetCurrOrgLeaveHospNumHttpPostIn" />
-      <wsdl:output message="tns:GetCurrOrgLeaveHospNumHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum_Item">
-      <wsdl:input message="tns:GetCurrLeaveHospNum_ItemHttpPostIn" />
-      <wsdl:output message="tns:GetCurrLeaveHospNum_ItemHttpPostOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
-      <wsdl:input message="tns:GetCurrOrgLeaveHospNum_ItemHttpPostIn" />
-      <wsdl:output message="tns:GetCurrOrgLeaveHospNum_ItemHttpPostOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrInHosp_ByDiag">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum_Item">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum_Item">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrDayInHospNum">
       <soap:operation soapAction="http://www.dlnsoft.com/GetCurrDayInHospNum" style="document" />
       <wsdl:input>
@@ -5675,8 +6412,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersTest">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetNurOrdersTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersControl">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetNurOrdersControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NursingExec">
       <soap:operation soapAction="http://www.dlnsoft.com/NursingExec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NursingExec_EMPID">
+      <soap:operation soapAction="http://www.dlnsoft.com/NursingExec_EMPID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -5767,6 +6531,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetITEMINFO">
       <soap:operation soapAction="http://www.dlnsoft.com/GetITEMINFO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetOrderInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -5900,6 +6673,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="findAllReportByPatiID">
+      <soap:operation soapAction="http://www.dlnsoft.com/findAllReportByPatiID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="findCheckReport">
       <soap:operation soapAction="http://www.dlnsoft.com/findCheckReport" style="document" />
       <wsdl:input>
@@ -5965,6 +6747,24 @@
     </wsdl:operation>
     <wsdl:operation name="MicroPay">
       <soap:operation soapAction="http://www.dlnsoft.com/MicroPay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MicroPayQry">
+      <soap:operation soapAction="http://www.dlnsoft.com/MicroPayQry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap:operation soapAction="http://www.dlnsoft.com/CreateOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -6064,6 +6864,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrdInfo">
       <soap:operation soapAction="http://www.dlnsoft.com/GetOrdInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTOrdInfo">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetSTOrdInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -6199,6 +7008,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllInpatient">
       <soap:operation soapAction="http://www.dlnsoft.com/GetAllInpatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeartWJZ">
+      <soap:operation soapAction="http://www.dlnsoft.com/HeartWJZ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPDF">
+      <soap:operation soapAction="http://www.dlnsoft.com/AddPDF" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -6350,6 +7177,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPatiInfoBaseByID">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetPatiInfoBaseByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpImage">
+      <soap:operation soapAction="http://www.dlnsoft.com/GetEmpImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrInHospNum">
       <soap:operation soapAction="http://www.dlnsoft.com/GetCurrInHospNum" style="document" />
       <wsdl:input>
@@ -6377,99 +7222,99 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag_Item" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum_Item">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum_Item">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
-      <soap:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrInHosp_ByDiag">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum_Item">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum_Item">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrDayInHospNum">
       <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrDayInHospNum" style="document" />
       <wsdl:input>
@@ -6677,8 +7522,35 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersTest">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetNurOrdersTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersControl">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetNurOrdersControl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NursingExec">
       <soap12:operation soapAction="http://www.dlnsoft.com/NursingExec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NursingExec_EMPID">
+      <soap12:operation soapAction="http://www.dlnsoft.com/NursingExec_EMPID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -6769,6 +7641,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetITEMINFO">
       <soap12:operation soapAction="http://www.dlnsoft.com/GetITEMINFO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetOrderInfo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -6902,6 +7783,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="findAllReportByPatiID">
+      <soap12:operation soapAction="http://www.dlnsoft.com/findAllReportByPatiID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="findCheckReport">
       <soap12:operation soapAction="http://www.dlnsoft.com/findCheckReport" style="document" />
       <wsdl:input>
@@ -6967,6 +7857,24 @@
     </wsdl:operation>
     <wsdl:operation name="MicroPay">
       <soap12:operation soapAction="http://www.dlnsoft.com/MicroPay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MicroPayQry">
+      <soap12:operation soapAction="http://www.dlnsoft.com/MicroPayQry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap12:operation soapAction="http://www.dlnsoft.com/CreateOrder" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -7066,6 +7974,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrdInfo">
       <soap12:operation soapAction="http://www.dlnsoft.com/GetOrdInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTOrdInfo">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetSTOrdInfo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -7201,6 +8118,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllInpatient">
       <soap12:operation soapAction="http://www.dlnsoft.com/GetAllInpatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeartWJZ">
+      <soap12:operation soapAction="http://www.dlnsoft.com/HeartWJZ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPDF">
+      <soap12:operation soapAction="http://www.dlnsoft.com/AddPDF" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -7352,6 +8287,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPatiInfoBaseByID">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetPatiInfoBaseByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpImage">
+      <soap12:operation soapAction="http://www.dlnsoft.com/GetEmpImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrInHospNum">
       <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrInHospNum" style="document" />
       <wsdl:input>
@@ -7379,99 +8332,99 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrInHosp_ByDiag_Item" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum_Item">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOutHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgOutHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum_Item">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrLeaveHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
-      <soap12:operation soapAction="http://www.dlnsoft.com/GetCurrOrgLeaveHospNum_Item" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
     <http:binding verb="GET" />
+    <wsdl:operation name="GetCurrInHosp_ByDiag">
+      <http:operation location="/GetCurrInHosp_ByDiag" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
+      <http:operation location="/GetCurrInHosp_ByDiag_Item" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum">
+      <http:operation location="/GetCurrOutHospNum" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum">
+      <http:operation location="/GetCurrOrgOutHospNum" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum_Item">
+      <http:operation location="/GetCurrOutHospNum_Item" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
+      <http:operation location="/GetCurrOrgOutHospNum_Item" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum">
+      <http:operation location="/GetCurrLeaveHospNum" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum">
+      <http:operation location="/GetCurrOrgLeaveHospNum" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum_Item">
+      <http:operation location="/GetCurrLeaveHospNum_Item" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
+      <http:operation location="/GetCurrOrgLeaveHospNum_Item" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrDayInHospNum">
       <http:operation location="/GetCurrDayInHospNum" />
       <wsdl:input>
@@ -7679,8 +8632,35 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersTest">
+      <http:operation location="/GetNurOrdersTest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersControl">
+      <http:operation location="/GetNurOrdersControl" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NursingExec">
       <http:operation location="/NursingExec" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NursingExec_EMPID">
+      <http:operation location="/NursingExec_EMPID" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -7771,6 +8751,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetITEMINFO">
       <http:operation location="/GetITEMINFO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <http:operation location="/GetOrderInfo" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -7904,6 +8893,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="findAllReportByPatiID">
+      <http:operation location="/findAllReportByPatiID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="findCheckReport">
       <http:operation location="/findCheckReport" />
       <wsdl:input>
@@ -7969,6 +8967,24 @@
     </wsdl:operation>
     <wsdl:operation name="MicroPay">
       <http:operation location="/MicroPay" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MicroPayQry">
+      <http:operation location="/MicroPayQry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <http:operation location="/CreateOrder" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -8068,6 +9084,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrdInfo">
       <http:operation location="/GetOrdInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTOrdInfo">
+      <http:operation location="/GetSTOrdInfo" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -8203,6 +9228,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllInpatient">
       <http:operation location="/GetAllInpatient" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeartWJZ">
+      <http:operation location="/HeartWJZ" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPDF">
+      <http:operation location="/AddPDF" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -8354,6 +9397,24 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPatiInfoBaseByID">
+      <http:operation location="/GetPatiInfoBaseByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpImage">
+      <http:operation location="/GetEmpImage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrInHospNum">
       <http:operation location="/GetCurrInHospNum" />
       <wsdl:input>
@@ -8374,96 +9435,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetCurrOrgInHospNum_Item">
       <http:operation location="/GetCurrOrgInHospNum_Item" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag">
-      <http:operation location="/GetCurrInHosp_ByDiag" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
-      <http:operation location="/GetCurrInHosp_ByDiag_Item" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum">
-      <http:operation location="/GetCurrOutHospNum" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum">
-      <http:operation location="/GetCurrOrgOutHospNum" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum_Item">
-      <http:operation location="/GetCurrOutHospNum_Item" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
-      <http:operation location="/GetCurrOrgOutHospNum_Item" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum">
-      <http:operation location="/GetCurrLeaveHospNum" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum">
-      <http:operation location="/GetCurrOrgLeaveHospNum" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum_Item">
-      <http:operation location="/GetCurrLeaveHospNum_Item" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
-      <http:operation location="/GetCurrOrgLeaveHospNum_Item" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -8474,6 +9445,96 @@
   </wsdl:binding>
   <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
     <http:binding verb="POST" />
+    <wsdl:operation name="GetCurrInHosp_ByDiag">
+      <http:operation location="/GetCurrInHosp_ByDiag" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
+      <http:operation location="/GetCurrInHosp_ByDiag_Item" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum">
+      <http:operation location="/GetCurrOutHospNum" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum">
+      <http:operation location="/GetCurrOrgOutHospNum" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOutHospNum_Item">
+      <http:operation location="/GetCurrOutHospNum_Item" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
+      <http:operation location="/GetCurrOrgOutHospNum_Item" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum">
+      <http:operation location="/GetCurrLeaveHospNum" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum">
+      <http:operation location="/GetCurrOrgLeaveHospNum" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrLeaveHospNum_Item">
+      <http:operation location="/GetCurrLeaveHospNum_Item" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
+      <http:operation location="/GetCurrOrgLeaveHospNum_Item" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrDayInHospNum">
       <http:operation location="/GetCurrDayInHospNum" />
       <wsdl:input>
@@ -8681,8 +9742,35 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersTest">
+      <http:operation location="/GetNurOrdersTest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurOrdersControl">
+      <http:operation location="/GetNurOrdersControl" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NursingExec">
       <http:operation location="/NursingExec" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NursingExec_EMPID">
+      <http:operation location="/NursingExec_EMPID" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -8773,6 +9861,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetITEMINFO">
       <http:operation location="/GetITEMINFO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <http:operation location="/GetOrderInfo" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -8906,6 +10003,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="findAllReportByPatiID">
+      <http:operation location="/findAllReportByPatiID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="findCheckReport">
       <http:operation location="/findCheckReport" />
       <wsdl:input>
@@ -8971,6 +10077,24 @@
     </wsdl:operation>
     <wsdl:operation name="MicroPay">
       <http:operation location="/MicroPay" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MicroPayQry">
+      <http:operation location="/MicroPayQry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <http:operation location="/CreateOrder" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -9070,6 +10194,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrdInfo">
       <http:operation location="/GetOrdInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTOrdInfo">
+      <http:operation location="/GetSTOrdInfo" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -9205,6 +10338,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllInpatient">
       <http:operation location="/GetAllInpatient" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeartWJZ">
+      <http:operation location="/HeartWJZ" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPDF">
+      <http:operation location="/AddPDF" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -9356,6 +10507,24 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPatiInfoBaseByID">
+      <http:operation location="/GetPatiInfoBaseByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpImage">
+      <http:operation location="/GetEmpImage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCurrInHospNum">
       <http:operation location="/GetCurrInHospNum" />
       <wsdl:input>
@@ -9376,96 +10545,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetCurrOrgInHospNum_Item">
       <http:operation location="/GetCurrOrgInHospNum_Item" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag">
-      <http:operation location="/GetCurrInHosp_ByDiag" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrInHosp_ByDiag_Item">
-      <http:operation location="/GetCurrInHosp_ByDiag_Item" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum">
-      <http:operation location="/GetCurrOutHospNum" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum">
-      <http:operation location="/GetCurrOrgOutHospNum" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOutHospNum_Item">
-      <http:operation location="/GetCurrOutHospNum_Item" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgOutHospNum_Item">
-      <http:operation location="/GetCurrOrgOutHospNum_Item" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum">
-      <http:operation location="/GetCurrLeaveHospNum" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum">
-      <http:operation location="/GetCurrOrgLeaveHospNum" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrLeaveHospNum_Item">
-      <http:operation location="/GetCurrLeaveHospNum_Item" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCurrOrgLeaveHospNum_Item">
-      <http:operation location="/GetCurrOrgLeaveHospNum_Item" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

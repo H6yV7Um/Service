@@ -35,7 +35,7 @@ public partial class test_Qrcode : System.Web.UI.Page
         string id_card = "";
         string data_src = "hisSrc";
         string biz_id = Guid.NewGuid().ToString();
-        string pay_type = "wechatNo";
+        string pay_type = "alipayQrcode";//alipayQrcode,wechatQrcode
         string sign = "92278c4d91304ca383a9e4c9dfe80b44"; //92278c4d91304ca383a9e4c9dfe80b44
         string JsonStr = createOrder(hospital_id,totle_amt,visit_id,patient_id,real_name,id_card,data_src,biz_id,pay_type,sign);
         //JObject jo = (JObject)JsonConvert.DeserializeObject(JsonStr);
@@ -55,7 +55,9 @@ public partial class test_Qrcode : System.Web.UI.Page
         {
             if (!String.IsNullOrEmpty(hospital_id) && !String.IsNullOrEmpty(totle_amt) && !String.IsNullOrEmpty(data_src) && !String.IsNullOrEmpty(biz_id) && !String.IsNullOrEmpty(pay_type) && !String.IsNullOrEmpty(sign))
             {
-                ServiceReferenceCreate.TicketPayWebServiceClient _client = new ServiceReferenceCreate.TicketPayWebServiceClient();
+                //ServiceReferenceCreate.TicketPayWebServiceClient _client = new ServiceReferenceCreate.TicketPayWebServiceClient();
+                //ServiceReferenceQrTest.TicketPayWebServiceV2Client _client = new ServiceReferenceQrTest.TicketPayWebServiceV2Client();
+                ServiceReferenceV2Create.TicketPayWebServiceV2Client _client = new ServiceReferenceV2Create.TicketPayWebServiceV2Client();
                 IDictionary<string, string> para = new Dictionary<string, string>();
                 para.Add("hospital_id", hospital_id);
                 para.Add("totle_amt", totle_amt);

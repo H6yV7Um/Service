@@ -15,7 +15,7 @@ using System.Configuration;
 using Dln.Common;
 using System.IO;
 
-public partial class test_VideoList : System.Web.UI.Page
+public partial class test_VideoListMy : System.Web.UI.Page
 {
     protected int totalCount;
     protected int page;
@@ -36,7 +36,7 @@ public partial class test_VideoList : System.Web.UI.Page
             this.rptList1.DataBind();
             //绑定页码
             txtPageNum.Text = this.pageSize.ToString();
-            string pageUrl = Utils.CombUrlTxt("VideoList.aspx", "keywords={0}&page={1}", this.keywords, "__id__");
+            string pageUrl = Utils.CombUrlTxt("VideoListMy.aspx", "keywords={0}&page={1}", this.keywords, "__id__");
             PageContent.InnerHtml = Utils.OutPageList(this.pageSize, this.page, this.totalCount, pageUrl, 8);
         }
     }
@@ -91,14 +91,14 @@ public partial class test_VideoList : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        Response.Redirect(Utils.CombUrlTxt("VideoList.aspx", "keywords={0}", txtKeywords.Text));
+        Response.Redirect(Utils.CombUrlTxt("VideoListMy.aspx", "keywords={0}", txtKeywords.Text));
     }
     /// <summary>
     /// 获得查询分页数据
     /// </summary>
     public DataSet GetList(int channel_id, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
     {
-        string sql = "select * from Movie where 1=1 ";
+        string sql = "select distinct Movie.* from Movie inner join MovieLog on Movie.id=MovieLog.movieID where 1=1 and MovieLog.username='8108' ";
         if (strWhere.Trim() != "")
         {
             sql += " and" + strWhere;
@@ -176,7 +176,7 @@ public partial class test_VideoList : System.Web.UI.Page
     }
     protected void btnUpdateWC_Click(object sender, EventArgs e)
     {
-        Response.Redirect("VideoListMy.aspx");
+        Response.Redirect("VideoList.aspx");
 
     }
    

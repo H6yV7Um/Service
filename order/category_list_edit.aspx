@@ -8,6 +8,7 @@
 <script src="../scripts/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../scripts/jquery/Validform_v5.3.2_min.js"></script>
 <script type="text/javascript" src="../scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+    <script type="text/javascript" src="../scripts/datepicker/WdatePicker.js"></script>
 <script src="../scripts/js/layout.js" type="text/javascript"></script>
 <link href="../scripts/skin/default/style.css" rel="stylesheet" type="text/css" />
 <link href="../scripts/css/pagination.css" rel="stylesheet" type="text/css" />
@@ -57,19 +58,47 @@
 
 <div class="tab-content">
 
-    <dl>
+ <%--   <dl>
     <dt>文件</dt>
     <dd>
             <asp:FileUpload ID="FileUpload1" CssClass="save"  runat="server" onchange="checkSize(this)" />
     </dd>
+  </dl>--%>
+    <dl>
+    <dt>是否需要修改</dt>
+    <dd>
+      <div class="rule-single-select">
+        <asp:DropDownList id="ddlState" runat="server">
+            <asp:ListItem Value="0">是</asp:ListItem>
+            <asp:ListItem Value="1">否</asp:ListItem>
+          </asp:DropDownList>
+      </div>
+        <span class="Validform_checktip">*如果查验时间到了之后不用修改，请选择“否”</span>
+    </dd>
   </dl>
-  <dl>
+ <%-- <dl>
     <dt>重命名</dt>
     <dd><asp:TextBox ID="txtRename" runat="server" onBlur="change2cn(this.value, this.form.txtCallIndex)" CssClass="input normal"  sucmsg=" "></asp:TextBox> <span class="Validform_checktip">*可对文件重新命名</span></dd>
   </dl>
   <dl>
     <dt>版本号</dt>
     <dd><asp:TextBox ID="txtVersion" runat="server" onBlur="change2cn(this.value, this.form.txtCallIndex)" CssClass="input normal"  sucmsg=" "></asp:TextBox> <span class="Validform_checktip">*自定义版本号如（2017-08-29），100字符内</span></dd>
+  </dl>--%>
+    <dl>
+    <dt>责任人</dt>
+    <dd><asp:TextBox ID="txtname" runat="server" onBlur="change2cn(this.value, this.form.txtCallIndex)" CssClass="input normal"  sucmsg=" "></asp:TextBox><span class="Validform_checktip">*填写责任人姓名</span> </dd>
+  </dl>
+    <dl>
+    <dt>责任人电话</dt>
+    <dd><asp:TextBox ID="txttel" runat="server" onBlur="change2cn(this.value, this.form.txtCallIndex)" CssClass="input normal"  sucmsg=" "></asp:TextBox><span class="Validform_checktip">*填写责任人手机长号</span></dd>
+  </dl>
+    <dl>
+    <dt>查验时间</dt>
+    <dd><asp:TextBox ID="txtrevise_time" runat="server"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" CssClass="input normal"  sucmsg=" "></asp:TextBox><span class="Validform_checktip">*一般三个月</span></dd>
+  </dl>
+    <dl>
+    <dt>本版本更新时间</dt>
+    <dd><asp:TextBox ID="txtlong_time" runat="server"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" CssClass="input normal"  sucmsg=" "></asp:TextBox><span class="Validform_checktip">*1年或2年,默认2年</span></dd>
   </dl>
 </div>
 <!--/内容-->
@@ -77,7 +106,7 @@
 <!--工具栏-->
 <div class="page-footer">
   <div class="btn-list">
-    <asp:Button ID="btnSubmit" runat="server" Text="上传" CssClass="btn" 
+    <asp:Button ID="btnSubmit" runat="server" Text="提交" CssClass="btn" 
           OnClientClick="SetUIStyle()" onclick="btnSubmit_Click"  />
     <input name="btnReturn" type="button" value="返回上一页" class="btn yellow" onclick="javascript:history.back(-1);" />
   </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VideoList.aspx.cs" Inherits="test_VideoList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VideoListMy.aspx.cs" Inherits="test_VideoListMy" %>
 <%@ Import namespace="DTcms.Common" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -69,7 +69,7 @@
   <div class="l-list">
       <ul class="icon-list">
       <li><asp:LinkButton ID="btnUpdateWC" runat="server" CssClass="save" 
-              onclick="btnUpdateWC_Click" ><i></i><span>查看我的课程</span></asp:LinkButton></li>
+              onclick="btnUpdateWC_Click" ><i></i><span>查看全部课程</span></asp:LinkButton></li>
         <li style="display:none"><asp:LinkButton ID="btnUpdate" runat="server" CssClass="save" 
                 OnClientClick="return ExePostBack1('btnUpdate');" onclick="btnUpdate_Click"><i></i><span>更改为处理中</span></asp:LinkButton></li>
                 <li style="display:none"><asp:LinkButton ID="btn_Back" runat="server" CssClass="save" 

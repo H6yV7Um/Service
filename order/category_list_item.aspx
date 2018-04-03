@@ -69,12 +69,14 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
     <th width="5%">选择</th>
-    <th align="left" width="30%">文件名</th>
+    <th align="left" width="20%">文件名</th>
     <th align="left" width="10%">大小</th>
-    <th align="left" width="15%">上传人</th>
-    <th align="left" width="15%">上传时间</th>
-    <th align="left" width="15%">版本</th>
-    <th width="5%">操作</th>
+    <th align="left" width="10%">上传人</th>
+    <th align="left" width="10%">上传时间</th>
+    <th align="left" width="10%">责任人</th>
+    <th align="left" width="10%">查验时间</th>
+    <th align="left" width="10%">校期时间</th>
+    <th width="20%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>
@@ -90,12 +92,17 @@
     <td><%# HumanReadableFilesize(Convert.ToDouble(Eval("fileSize")))%></td>
     <td><%# getUserName(Eval("username").ToString())%></td>
     <td><%# Eval("add_time")%></td>
-    <td><a href="category_list_item_version.aspx?id=<%#Eval("fileVersion")%>"><%# getVersion(Eval("fileVersion").ToString())%></a></td>
-    <td align="center"><a href="download.aspx?id=<%#Eval("id")%>">下载</a></td>
+    <%--<td><a href="category_list_item_version.aspx?id=<%#Eval("fileVersion")%>"><%# getVersion(Eval("fileVersion").ToString())%></a></td>--%>
+    <td><%# Eval("name")%></td>
+    <td><%# Eval("revise_time")%></td>
+    <td><%# Eval("long_time")%></td>
+    <td align="center"><a href="download.aspx?id=<%#Eval("id")%>">下载</a>
+        <a href="category_list_edit.aspx?id=<%#Eval("id")%>&typeid=<%=DTRequest.GetQueryInt("id")%>">编辑</a>
+    </td>
   </tr>
 </ItemTemplate>
 <FooterTemplate>
-  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"12\">暂无记录</td></tr>" : ""%>
+  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"9\">暂无记录</td></tr>" : ""%>
 </table>
 </FooterTemplate>
 </asp:Repeater>

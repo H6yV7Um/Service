@@ -29,14 +29,15 @@ public partial class test_Wechart : System.Web.UI.Page
         
         string hospital_id = "syzyyadmin";
         string hospital_area_id = "";
-        string auth_code = "134816135371332203";
+        string auth_code = "135010209437828424";
         string order_amount = "0.01";
         string biz_id = Guid.NewGuid().ToString();
-        string pay_type = "wechatScan";
+        //string pay_type = "wechatScan";
         string data_src = "hisSrc";
         string cashier_id = "1000001（张三）";
         string sign = "92278c4d91304ca383a9e4c9dfe80b44"; //92278c4d91304ca383a9e4c9dfe80b44
-        string JsonStr = MicroPay(hospital_id, hospital_area_id, auth_code, order_amount, biz_id, pay_type, data_src, cashier_id, sign);
+        //string JsonStr = MicroPay(hospital_id, hospital_area_id, auth_code, order_amount, biz_id, pay_type, data_src, cashier_id, sign);
+        string JsonStr = MicroPay(hospital_id, hospital_area_id, auth_code, order_amount, biz_id, data_src, cashier_id, sign);
         JObject jo = (JObject)JsonConvert.DeserializeObject(JsonStr);
         string zone = jo["result"].ToString();
         string zone_en = jo["message"].ToString();
@@ -121,6 +122,42 @@ public partial class test_Wechart : System.Web.UI.Page
         return sBuilder.ToString();
     }
 
+
+    private string MicroPay(string hospital_id, string hospital_area_id, string auth_code, string order_amount, string biz_id, string data_src, string cashier_id, string sign)
+    {
+        try
+        {
+            if (!String.IsNullOrEmpty(hospital_id) && !String.IsNullOrEmpty(auth_code) && !String.IsNullOrEmpty(order_amount) && !String.IsNullOrEmpty(biz_id) && !String.IsNullOrEmpty(data_src) && !String.IsNullOrEmpty(sign))
+            {
+                //ServiceReference2.Service1SoapClient _client2 = new ServiceReference2.Service1SoapClient();
+                //return _client2.MicroPay(hospital_id, hospital_area_id, auth_code, order_amount, biz_id, pay_type, data_src, cashier_id, sign);
+                //ServiceReference3.WindowPayWebServiceClient _client = new ServiceReference3.WindowPayWebServiceClient();
+
+                //ServiceReference1.WindowPayWebServiceClient _client = new ServiceReference1.WindowPayWebServiceClient();
+                ServiceReferenceV2.WindowPayWebServiceV2Client _client = new ServiceReferenceV2.WindowPayWebServiceV2Client();
+                IDictionary<string, string> para = new Dictionary<string, string>();
+                para.Add("hospital_id", hospital_id);
+                para.Add("hospital_area_id", hospital_area_id);
+                para.Add("auth_code", auth_code);
+                para.Add("order_amount", order_amount);
+                para.Add("biz_id", biz_id);
+                para.Add("data_src", data_src);
+                para.Add("cashier_id", cashier_id);
+                string signs = GetMD5Key(para, sign);//B9EB02AAD7DAB96B58A0D34CC2E12952
+                string result = "{\"hospital_id\":\"" + hospital_id + "\",\"hospital_area_id\":\"" + hospital_area_id + "\",\"auth_code\":\"" + auth_code + "\",\"order_amount\":\"" + order_amount + "\",\"biz_id\":\"" + biz_id + "\",\"data_src\":\"" + data_src + "\",\"cashier_id\":\"" + cashier_id + "\",\"sign\":\"" + signs + "\"}";
+                return _client.microPay(result);
+
+            }
+            return "";
+        }
+        catch (Exception)
+        {
+
+            return "";
+        }
+
+    }
+
     /// <summary>
     /// 反扫下单并支付
     /// </summary>
@@ -142,7 +179,10 @@ public partial class test_Wechart : System.Web.UI.Page
             {
                 //ServiceReference2.Service1SoapClient _client2 = new ServiceReference2.Service1SoapClient();
                 //return _client2.MicroPay(hospital_id, hospital_area_id, auth_code, order_amount, biz_id, pay_type, data_src, cashier_id, sign);
-                ServiceReference3.WindowPayWebServiceClient _client = new ServiceReference3.WindowPayWebServiceClient();
+                //ServiceReference3.WindowPayWebServiceClient _client = new ServiceReference3.WindowPayWebServiceClient();
+
+                //ServiceReference1.WindowPayWebServiceClient _client = new ServiceReference1.WindowPayWebServiceClient();
+                ServiceReferenceV2.WindowPayWebServiceV2Client _client = new ServiceReferenceV2.WindowPayWebServiceV2Client();
                 IDictionary<string, string> para = new Dictionary<string, string>();
                 para.Add("hospital_id", hospital_id);
                 para.Add("hospital_area_id", hospital_area_id);
@@ -176,7 +216,8 @@ public partial class test_Wechart : System.Web.UI.Page
         para.Add("hospital_id", "syzyyadmin");
         para.Add("biz_id", biz_id);
         string signs = GetMD5Key(para, sign);
-        ServiceReference1.WindowPayWebServiceClient _client = new ServiceReference1.WindowPayWebServiceClient();
+        //ServiceReference1.WindowPayWebServiceClient _client = new ServiceReference1.WindowPayWebServiceClient();
+        ServiceReferenceV2.WindowPayWebServiceV2Client _client = new ServiceReferenceV2.WindowPayWebServiceV2Client();
         string json = "{\"hospital_id\":\"syzyyadmin\",\"biz_id\":\""+ biz_id + "\",\"sign\":\"" + signs+"\"}";
         string s = _client.qryPayStatus(json);
         Label2.Text = s;

@@ -26,7 +26,7 @@ public partial class sms : System.Web.UI.Page
         string id = guid.ToString();
         string _add_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         string phone = TextBox1.Text.ToString();
-        string strSql = "insert into sms_outbox (sismsid, extcode, destaddr, messagecontent, reqdeliveryreport,msgfmt, sendmethod, requesttime, applicationid)VALUES('" + id + "', '01','" + phone + "', '5272718510003|外科|张三|3|4|医生',1,15,2, '" + _add_time + "', 'APP128')";
+        string strSql = "insert into sms_outbox (sismsid, extcode, destaddr, messagecontent, reqdeliveryreport,msgfmt, sendmethod, requesttime, applicationid)VALUES('" + id + "', '01','" + phone + "', '5272718510007|2号楼|心内科|冰箱|12.60|64.00',1,15,2, '" + _add_time + "', 'APP128')";
         //string strSql = "insert into sms_outbox values('3','','15995851784','5272718510086|123456|30',1,15,2,'2017-05-2 09:59:00','APP128')";
         int i=DbHelperMySQL.ExecuteSql(strSql);
         if (i > 0)

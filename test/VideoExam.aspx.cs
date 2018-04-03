@@ -46,7 +46,7 @@ public partial class test_VideoExam : System.Web.UI.Page
         //单选
         foreach (GridViewRow dr in GridView1.Rows)//对单选题每题进行判断用户选择答案
         {
-
+            string title = ((Label)dr.FindControl("Label2")).Text;
             string Answer = ((Label)dr.FindControl("Label3")).Text;
             string ID = ((Label)dr.FindControl("Label1")).Text;
             string str = "";
@@ -74,6 +74,7 @@ public partial class test_VideoExam : System.Web.UI.Page
             }
             else
             {
+                Response.Write("<script>javascript:alert( '" + title + " 错误');</script>");
                 //string SQL1 = "insert into TB_CuoTi(TID,UserName,MyDanAN ) values('" + ID + "','" + Session["username"].ToString() + "','" + str + "')";
                 //DBHelper.ExecSql(SQL1);  
                 DateTime add_time1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
@@ -86,7 +87,7 @@ public partial class test_VideoExam : System.Web.UI.Page
 
         foreach (GridViewRow dr2 in GridView2.Rows)
         {
-
+            string title = ((Label)dr2.FindControl("Label6")).Text;
             string Answer2 = ((Label)dr2.FindControl("Label7")).Text.Trim();
             string ID = ((Label)dr2.FindControl("Label1")).Text;
             string strs = "";
@@ -125,6 +126,7 @@ public partial class test_VideoExam : System.Web.UI.Page
             }
             else
             {
+                Response.Write("<script>javascript:alert( '" + title + " 错误');</script>");
                 //string SQL1 = "insert into TB_CuoTi(TID,UserName,MyDanAN ) values('" + ID + "','" + Session["username"].ToString() + "','" + strs + "')";
                 //DBHelper.ExecSql(SQL1);
                 DateTime add_time1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));

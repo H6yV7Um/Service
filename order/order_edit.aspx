@@ -115,6 +115,10 @@
             <asp:TextBox ID="mark" runat="server" CssClass="input normal" placeholder="可填写备注"
                 TextMode="MultiLine" Width="60%" Height="70px"></asp:TextBox>
         </dd>
+        <dt>固定资产号</dt>
+        <dd style="margin-top: 5px;">
+            <asp:TextBox ID="assets" runat="server" CssClass="input normal"  ></asp:TextBox><a href="http://www.healthyperson.cn/Page/AutoRun/searchbarcode.aspx?id=<%=id%>" target="_blank">(微信扫一扫)</a>
+        </dd>
         <dt>满意度</dt>
         <dd>
             <asp:Image ID="star1" runat="server" ImageUrl="~/img/star-on.png" Visible="False" />

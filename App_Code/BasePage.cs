@@ -515,7 +515,7 @@ public class BasePage : System.Web.UI.Page
     /// </summary>
     private void GetChilds(DataTable oldData, DataTable newData, int parent_id)
     {
-        DataRow[] dr = oldData.Select("parentID=" + parent_id);
+        DataRow[] dr = oldData.Select("parentID='"+ parent_id.ToString()+ "'" );
         for (int i = 0; i < dr.Length; i++)
         {
             DataRow row = newData.NewRow();//创建新行

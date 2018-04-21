@@ -10,12 +10,17 @@ using System.Data;
 
 public partial class order_order_edit : BasePage
 {
+    string _code = "";
+    public int id { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
+        _code = Request.QueryString["code"];
+        id = Convert.ToInt32(Request.QueryString["id"]);
+        
         if (!IsPostBack)
         {
             TreeBind();
-            int id = Convert.ToInt32(Request.QueryString["id"]);
+            
             //orderID.Text = id.ToString();
             //orderDetails.Text = getDetails(id);
             ResultDataSet Rs = new ResultDataSet();
@@ -28,6 +33,7 @@ public partial class order_order_edit : BasePage
                 details.Text = Rs[0, "details"].ToString();
                 mark.Text = Rs[0, "mark"].ToString();
                 LbStar.Text = getStarName(Rs[0, "starNum"].ToString());
+                assets.Text= Rs[0, "fixedAssets"].ToString();
                 if (Rs[0, "img_url"].ToString() == "")
                 {
                     Image1.ImageUrl = "../scripts/skin/default/noimg.jpg";
@@ -43,6 +49,11 @@ public partial class order_order_edit : BasePage
             {
                 Image1.ImageUrl = "../scripts/skin/default/noimg.jpg";
                 Image1.Width = 200;
+            }
+
+            if (!String.IsNullOrEmpty(_code))
+            {
+                assets.Text = _code;
             }
         }
     }
@@ -94,7 +105,7 @@ public partial class order_order_edit : BasePage
         int id = Convert.ToInt32(Request.QueryString["id"]);
         ResultDataSet Rs2 = new ResultDataSet();
         database_inte db2 = new database_inte();
-        string sql2 = "update dt_order set mark='" + _mark + "',type='" + _type + "',group_id='" + _groupID + "' where id ='" + id + "'";
+        string sql2 = "update dt_order set mark='" + _mark + "',type='" + _type + "',group_id='" + _groupID + "',fixedAssets='"+assets.Text.ToString()+"' where id ='" + id + "'";
         if (db2.DB2Obj.Exec(sql2))
         {
             Response.Redirect(url+".aspx");

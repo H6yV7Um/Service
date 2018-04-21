@@ -114,9 +114,11 @@
     <th align="left" width="5%">提交人</th>
     <th align="left" width="12%">提交时间</th>
     <th align="left" width="5%">接收人</th>
-    <th align="left" width="12%">接收时间</th>
+    <th align="left" width="10%">接收时间</th>
+    <th align="left" width="10%">完成时间</th>
     <th align="left" width="5%">状态</th>
-    <th align="left" width="8%">问题类别</th>
+    <th align="left" width="5%">问题类别</th>
+      <th align="left" width="5%">固定资产号</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>
@@ -130,12 +132,14 @@
     <td><%# Eval("add_time")%></td>
     <td><%# getUserName(Eval("update_name").ToString())%></td>
     <td><%# Eval("update_time")%></td>
+    <td><%# Eval("updateComplete_time")%></td>
     <td><%#getState(Eval("state").ToString().Trim())%></td>
     <td><%#getGroupName(Eval("type").ToString())%></td>
+     <td><%# Eval("fixedAssets")%></td>
   </tr>
 </ItemTemplate>
 <FooterTemplate>
-  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"10\">暂无记录</td></tr>" : ""%>
+  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"12\">暂无记录</td></tr>" : ""%>
 </table>
 </FooterTemplate>
 </asp:Repeater>

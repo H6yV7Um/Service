@@ -266,6 +266,8 @@ function SetUIStyle3() {
                     </div>
                     <label class="control-label" for="selectError">报修地址<span class="tip">*</span></label>
                     <div class="controls">
+                        <asp:DropDownList ID="dp_dress" runat="server"  class="form-control">
+                        </asp:DropDownList>
                         <asp:TextBox ID="address" runat="server" class="form-control" placeholder="请输入报修地址" onkeydown="if(event.keyCode==32) return false"></asp:TextBox>
                     </div>
                     <label for="exampleInputEmail1">故障图片</label>

@@ -26,13 +26,13 @@ public partial class test_VideoListMy : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         this.keywords = DTRequest.GetQueryString("keywords");
-        this.pageSize = GetPageSize(8); //每页数量
+        this.pageSize = GetPageSize(20); //每页数量
         this.page = DTRequest.GetQueryInt("page", 1);
         if (!Page.IsPostBack)
         {
             
             this.txtKeywords.Text = this.keywords;
-            this.rptList1.DataSource = GetList(0, 0, this.pageSize, this.page, CombSqlTxt(this.keywords, ""), "  id desc", out this.totalCount);
+            this.rptList1.DataSource = GetList(0, 0, this.pageSize, this.page, CombSqlTxt(this.keywords, ""), "  hrmID asc", out this.totalCount);
             this.rptList1.DataBind();
             //绑定页码
             txtPageNum.Text = this.pageSize.ToString();
@@ -48,7 +48,7 @@ public partial class test_VideoListMy : System.Web.UI.Page
         _keywords = _keywords.Replace("'", "");
         if (!string.IsNullOrEmpty(_keywords))
         {
-            strTemp.Append(" (name like '%" + _keywords + "%' or teacher like '%" + _keywords + "%')");
+            strTemp.Append(" (name like '%" + _keywords + "%' or hrmID like '%" + _keywords + "%')");
         }
         return strTemp.ToString();
     }
@@ -76,7 +76,7 @@ public partial class test_VideoListMy : System.Web.UI.Page
             }
         }
         //JscriptMsg("删除成功" + sucCount + "条，失败" + errorCount + "条！", Utils.CombUrlTxt("Repeater.aspx", "", ""), "Success");
-        Response.Redirect(Utils.CombUrlTxt("order_list.aspx", "", ""));
+        Response.Redirect(Utils.CombUrlTxt("Doctor1.aspx", "", ""));
     }
     public bool Delete(int id)
     {
@@ -98,18 +98,18 @@ public partial class test_VideoListMy : System.Web.UI.Page
     /// </summary>
     public DataSet GetList(int channel_id, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
     {
-        string sql = "select distinct Movie.* from Movie inner join MovieLog on Movie.id=MovieLog.movieID where 1=1 and MovieLog.username='8108' ";
+        string sql = "select hrmID,departname,name,techlevel,manager from Hrms_Department where 1=1";
         if (strWhere.Trim() != "")
         {
             sql += " and" + strWhere;
         }
         ResultDataSet Rs = new ResultDataSet();
-        db.DB2Obj.GetRs(sql, out Rs);
+        db.DBObj.GetRs(sql, out Rs);
         recordCount = Rs.RowCount;
         string _sql = PagingHelper.CreatePagingSql(recordCount, pageSize, pageIndex, sql.ToString(), filedOrder);
         //string _sql = PagingHelper.GetListByPage("dt_order", getOrderSqlWhere("state='0'"), "id asc", (pageIndex - 1) * pageSize + 1, pageSize * pageIndex);
         ResultDataSet Rs2 = new ResultDataSet();
-        db.DB2Obj.GetRs(_sql, out Rs2);
+        db.DBObj.GetRs(_sql, out Rs2);
         DataSet dt = ((DataSet)Rs2);
         return dt;
     }
@@ -124,7 +124,7 @@ public partial class test_VideoListMy : System.Web.UI.Page
                 Utils.WriteCookie("article_page_size", _pagesize.ToString(), 43200);
             }
         }
-        Response.Redirect(Utils.CombUrlTxt("order_list.aspx", "", ""));
+        Response.Redirect(Utils.CombUrlTxt("VideoListMy.aspx", "", ""));
     }
     #region 返回图文每页数量=========================
     private int GetPageSize(int _default_size)
@@ -176,7 +176,7 @@ public partial class test_VideoListMy : System.Web.UI.Page
     }
     protected void btnUpdateWC_Click(object sender, EventArgs e)
     {
-        Response.Redirect("VideoList.aspx");
+        Response.Redirect("Doctor1.aspx");
 
     }
    

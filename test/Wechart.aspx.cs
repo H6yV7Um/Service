@@ -29,7 +29,7 @@ public partial class test_Wechart : System.Web.UI.Page
         
         string hospital_id = "syzyyadmin";
         string hospital_area_id = "";
-        string auth_code = "135010209437828424";
+        string auth_code = "134805578981882905";
         string order_amount = "0.01";
         string biz_id = Guid.NewGuid().ToString();
         //string pay_type = "wechatScan";
@@ -134,7 +134,7 @@ public partial class test_Wechart : System.Web.UI.Page
                 //ServiceReference3.WindowPayWebServiceClient _client = new ServiceReference3.WindowPayWebServiceClient();
 
                 //ServiceReference1.WindowPayWebServiceClient _client = new ServiceReference1.WindowPayWebServiceClient();
-                ServiceReferenceV2.WindowPayWebServiceV2Client _client = new ServiceReferenceV2.WindowPayWebServiceV2Client();
+                TestAddressPay.WindowPayWebServiceV2Client _client = new TestAddressPay.WindowPayWebServiceV2Client();
                 IDictionary<string, string> para = new Dictionary<string, string>();
                 para.Add("hospital_id", hospital_id);
                 para.Add("hospital_area_id", hospital_area_id);
@@ -220,6 +220,20 @@ public partial class test_Wechart : System.Web.UI.Page
         ServiceReferenceV2.WindowPayWebServiceV2Client _client = new ServiceReferenceV2.WindowPayWebServiceV2Client();
         string json = "{\"hospital_id\":\"syzyyadmin\",\"biz_id\":\""+ biz_id + "\",\"sign\":\"" + signs+"\"}";
         string s = _client.qryPayStatus(json);
+        Label2.Text = s;
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        string biz_id = TextBox1.Text.ToString(); //1a995119c725431285c04d647109d05f1
+        string sign = "92278c4d91304ca383a9e4c9dfe80b44";
+        IDictionary<string, string> para = new Dictionary<string, string>();
+        para.Add("hospital_id", "syzyyadmin");
+        para.Add("biz_id", biz_id);
+        string signs = GetMD5Key(para, sign);
+        TestAddressPay.WindowPayWebServiceV2Client _client = new TestAddressPay.WindowPayWebServiceV2Client();
+        string json = "{\"hospital_id\":\"syzyyadmin\",\"biz_id\":\"" + biz_id + "\",\"sign\":\"" + signs + "\"}";
+        string s = _client.reverseOrder(json);
         Label2.Text = s;
     }
 }

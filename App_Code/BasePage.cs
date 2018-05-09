@@ -486,6 +486,30 @@ public class BasePage : System.Web.UI.Page
         GetChilds(oldData, newData, parent_id);
         return newData;
     }
+    public DataTable GetAddressList(int parent_id)
+    {
+        StringBuilder strSql = new StringBuilder();
+        strSql.Append("select * from FileType");
+        ResultDataSet Rs2 = new ResultDataSet();
+        database_inte db2 = new database_inte();
+        db2.DB2Obj.GetRs(strSql.ToString(), out Rs2);
+        DataTable oldData = null;
+        if (Rs2.RowCount > 0)
+        {
+            DataSet ds = ((DataSet)Rs2);
+            oldData = ds.Tables[0] as DataTable;
+            if (oldData == null)
+            {
+                return null;
+            }
+
+        }
+        //复制结构
+        DataTable newData = oldData.Clone();
+        //调用迭代组合成DAGATABLE
+        GetChilds(oldData, newData, parent_id);
+        return newData;
+    }
     public DataTable GetList2(int parent_id)
     {
         StringBuilder strSql = new StringBuilder();

@@ -10,12 +10,14 @@ using System.Web.UI.WebControls;
 public partial class test_Doctor1 : System.Web.UI.Page
 {
     database_inte db = new database_inte();
+    string hrmID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        hrmID = Request.QueryString["hrmID"];
         if (!IsPostBack)
         {
             ResultDataSet Rs = new ResultDataSet();
-            string strSQL = "select * from Hrms_Department where hrmID=1007";
+            string strSQL = "select * from Hrms_Department where hrmID="+int.Parse(hrmID)+"";
             db.DBObj.GetRs(strSQL, out Rs);
             if (Rs.RowCount > 0)
             {
@@ -25,7 +27,7 @@ public partial class test_Doctor1 : System.Web.UI.Page
                 Label4.Text = Rs[0, "techlevel"].ToString();
             }
             ResultDataSet Rs2 = new ResultDataSet();
-            string strSQL2 = "select * from Hrms where UserId='1007'";
+            string strSQL2 = "select * from Hrms where UserId='"+hrmID+"'";
             db.DBObj.GetRs(strSQL2, out Rs2);
             if (Rs2.RowCount > 0)
             {
@@ -34,7 +36,7 @@ public partial class test_Doctor1 : System.Web.UI.Page
             }
 
             ResultDataSet Rs3 = new ResultDataSet();
-            string strSQL3 = "select * from Doctor_Item where UserId='1007'";
+            string strSQL3 = "select * from Doctor_Item where UserId='" + hrmID + "'";
             db.DBObj.GetRs(strSQL3, out Rs3);
             if (Rs3.RowCount > 0)
             {
@@ -108,6 +110,13 @@ public partial class test_Doctor1 : System.Web.UI.Page
                     CBS10.Checked = normalItem10Array[1] == "1" ? true : false;
                     CBQ10.Checked = normalItem10Array[2] == "1" ? true : false;
                 }
+                string[] normalItem11Array = Rs3[0, "normalItem11"].ToString().Split('&');
+                if (normalItem11Array.Length == 3)
+                {
+                    SQ11.Text = normalItem11Array[0];
+                    CBS11.Checked = normalItem11Array[1] == "1" ? true : false;
+                    CBQ11.Checked = normalItem11Array[2] == "1" ? true : false;
+                }
                 //特殊授权
                 string[] specialItem1Array = Rs3[0, "specialItem1"].ToString().Split('&');
                 if (specialItem1Array.Length == 3)
@@ -179,6 +188,13 @@ public partial class test_Doctor1 : System.Web.UI.Page
                     CB10.Checked = specialItem10Array[1] == "1" ? true : false;
                     CB20.Checked = specialItem10Array[2] == "1" ? true : false;
                 }
+                string[] specialItem11Array = Rs3[0, "specialItem11"].ToString().Split('&');
+                if (specialItem11Array.Length == 3)
+                {
+                    TB11.Text = specialItem11Array[0];
+                    CB111.Checked = specialItem11Array[1] == "1" ? true : false;
+                    CB21.Checked = specialItem11Array[2] == "1" ? true : false;
+                }
                 string[] str= Rs3[0, "otherItem"].ToString().Split('&');
                 for (int i = 0; i < CheckBoxList1.Items.Count; i++)
                 {
@@ -247,6 +263,11 @@ public partial class test_Doctor1 : System.Web.UI.Page
         string _cbq10 = CBQ10.Checked ? "1" : "0";
         string _sq10cb = _sq10 + "&" + _cbs10 + "&" + _cbq10;
 
+        string _sq11 = SQ11.Text.ToString();
+        string _cbs11 = CBS11.Checked ? "1" : "0";
+        string _cbq11 = CBQ11.Checked ? "1" : "0";
+        string _sq11cb = _sq11 + "&" + _cbs11 + "&" + _cbq11;
+
         string _tp1 = TB1.Text.ToString();
         string _cb1 = CB1.Checked ? "1" : "0";
         string _cb11 = CB11.Checked ? "1" : "0";
@@ -297,6 +318,11 @@ public partial class test_Doctor1 : System.Web.UI.Page
         string _cb20 = CB20.Checked ? "1" : "0";
         string _tssq10 = _tp10 + "&" + _cb10 + "&" + _cb20;
 
+        string _tp11 = TB11.Text.ToString();
+        string _cb111 = CB111.Checked ? "1" : "0";
+        string _cb21 = CB21.Checked ? "1" : "0";
+        string _tssq11 = _tp11 + "&" + _cb111 + "&" + _cb21;
+
         string str = "";
         for (int i = 0; i < CheckBoxList1.Items.Count; i++)
         {
@@ -305,10 +331,9 @@ public partial class test_Doctor1 : System.Web.UI.Page
                 str += CheckBoxList1.Items[i].Value + "&";
             }
         }
-        string UserId = "1007";
         string _add_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         ResultDataSet Rs3 = new ResultDataSet();
-        string strSQL3 = "select * from Doctor_Item where UserId='1007'";
+        string strSQL3 = "select * from Doctor_Item where UserId='"+ hrmID + "'";
         db.DBObj.GetRs(strSQL3, out Rs3);
         if (Rs3.RowCount > 0)
         {
@@ -323,6 +348,7 @@ public partial class test_Doctor1 : System.Web.UI.Page
                         + " ,[normalItem8] = '" + _sq8cb + "'"
                         + " ,[normalItem9] = '" + _sq9cb + "'"
                         + " ,[normalItem10] = '" + _sq10cb + "'"
+                        + " ,[normalItem11] = '" + _sq11cb + "'"
                         + "  ,[specialItem1] = '" + _tssq1 + "'"
                         + "  ,[specialItem2] = '" + _tssq2 + "'"
                         + "  ,[specialItem3] = '" + _tssq3 + "'"
@@ -333,13 +359,14 @@ public partial class test_Doctor1 : System.Web.UI.Page
                         + "  ,[specialItem8] = '" + _tssq8 + "'"
                         + "  ,[specialItem9] = '" + _tssq9 + "'"
                         + "  ,[specialItem10] = '" + _tssq10 + "'"
-                        + "  ,[UserId] = '" + UserId + "'"
+                        + "  ,[specialItem11] = '" + _tssq11 + "'"
+                        + "  ,[UserId] = '" + hrmID + "'"
                         + "  ,[otherItem] = '" + str + "'"
                         + "  ,[add_time] = '" + _add_time + "'"
-                        + " WHERE UserId='" + UserId + "'";
+                        + " WHERE UserId='" + hrmID + "'";
             if (db.DBObj.Exec(sql2))
             {
-                Response.Write("<script>javascript:alert( '修改成功');window.location='Doctor1.aspx'</script>");
+                Response.Write("<script>javascript:alert( '修改成功');window.location='Doctor1.aspx?hrmID="+hrmID+"'</script>");
             }
         }
         else
@@ -347,10 +374,10 @@ public partial class test_Doctor1 : System.Web.UI.Page
             string sql = "INSERT [Doctor_Item] ([normalItem1],[normalItem2],[normalItem3],[normalItem4],[normalItem5],[normalItem6],[normalItem7],[normalItem8],[normalItem9],[normalItem10],[specialItem1],[specialItem2],[specialItem3],[specialItem4],[specialItem5],[specialItem6],[specialItem7],[specialItem8],[specialItem9],[specialItem10],[UserId],[otherItem],[add_time]) VALUES"
             + " ( '" + _sq1cb + "','" + _sq2cb + "','" + _sq3cb + "','" + _sq4cb + "','" + _sq5cb + "','" + _sq6cb + "','" + _sq7cb + "','" + _sq8cb + "','" + _sq9cb + "','" + _sq10cb + "',"
             + " '" + _tssq1 + "','" + _tssq2 + "','" + _tssq3 + "','" + _tssq4 + "','" + _tssq5 + "','" + _tssq6 + "','" + _tssq7 + "','" + _tssq8 + "','" + _tssq9 + "','" + _tssq10 + "',"
-            + " '" + UserId + "','" + str + "','" + _add_time + "')";
+            + " '" + hrmID + "','" + str + "','" + _add_time + "')";
             if (db.DBObj.Exec(sql))
             {
-                Response.Write("<script>javascript:alert( '保存成功！');window.location='Doctor1.aspx'</script>");
+                Response.Write("<script>javascript:alert( '保存成功！');window.location='Doctor1.aspx?hrmID=" + hrmID + "'</script>");
             }
         }
         
@@ -359,6 +386,21 @@ public partial class test_Doctor1 : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Response.Redirect("DoctorItemDetails.aspx");
+        Response.Redirect("DoctorItemDetails.aspx?hrmID=" + hrmID + "");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("VideoListMy.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Doctor2.aspx?hrmID="+hrmID+"");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Doctor3.aspx?hrmID=" + hrmID + "");
     }
 }

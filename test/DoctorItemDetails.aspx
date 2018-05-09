@@ -51,6 +51,7 @@
         <p>
             <asp:TextBox ID="TextBox10" runat="server" Height="50px" TextMode="MultiLine" Width="500px"></asp:TextBox></p>
         <p>
+            <a href="javascript:history.back(-1);"><i></i><span>返回</span></a>
             <asp:Button ID="Button1" runat="server" Text="保存" OnClick="Button1_Click" />
         </p>
     </div>

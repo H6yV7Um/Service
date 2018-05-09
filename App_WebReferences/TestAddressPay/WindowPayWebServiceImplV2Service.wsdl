@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.witontek.com/ehospital/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WindowPayWebServiceImplV2Service" targetNamespace="http://www.witontek.com/ehospital/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://www.witontek.com/ehospital/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="closeOrder" type="tns:closeOrder" />
+      <xs:element name="closeOrderResponse" type="tns:closeOrderResponse" />
+      <xs:element name="createOrder" type="tns:createOrder" />
+      <xs:element name="createOrderResponse" type="tns:createOrderResponse" />
+      <xs:element name="microPay" type="tns:microPay" />
+      <xs:element name="microPayResponse" type="tns:microPayResponse" />
+      <xs:element name="qryOrderStatus" type="tns:qryOrderStatus" />
+      <xs:element name="qryOrderStatusResponse" type="tns:qryOrderStatusResponse" />
+      <xs:element name="qryPayStatus" type="tns:qryPayStatus" />
+      <xs:element name="qryPayStatusResponse" type="tns:qryPayStatusResponse" />
+      <xs:element name="qryRefund" type="tns:qryRefund" />
+      <xs:element name="qryRefundResponse" type="tns:qryRefundResponse" />
+      <xs:element name="queryRefundStatus" type="tns:queryRefundStatus" />
+      <xs:element name="queryRefundStatusResponse" type="tns:queryRefundStatusResponse" />
+      <xs:element name="refund" type="tns:refund" />
+      <xs:element name="refundResponse" type="tns:refundResponse" />
+      <xs:element name="refundReverse" type="tns:refundReverse" />
+      <xs:element name="refundReverseResponse" type="tns:refundReverseResponse" />
+      <xs:element name="reverseOrder" type="tns:reverseOrder" />
+      <xs:element name="reverseOrderResponse" type="tns:reverseOrderResponse" />
+      <xs:element name="scanRefund" type="tns:scanRefund" />
+      <xs:element name="scanRefundResponse" type="tns:scanRefundResponse" />
+      <xs:complexType name="scanRefund">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="scanRefundResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="qryOrderStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="qryOrderStatusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryRefundStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryRefundStatusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="closeOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="closeOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refund">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refundResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="reverseOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="reverseOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refundReverse">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refundReverseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="qryPayStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="qryPayStatusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="microPay">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="microPayResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="qryRefund">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="inputStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="qryRefundResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="scanRefund">
+    <wsdl:part name="parameters" element="tns:scanRefund" />
+  </wsdl:message>
+  <wsdl:message name="reverseOrder">
+    <wsdl:part name="parameters" element="tns:reverseOrder" />
+  </wsdl:message>
+  <wsdl:message name="refundResponse">
+    <wsdl:part name="parameters" element="tns:refundResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryRefundStatus">
+    <wsdl:part name="parameters" element="tns:queryRefundStatus" />
+  </wsdl:message>
+  <wsdl:message name="closeOrderResponse">
+    <wsdl:part name="parameters" element="tns:closeOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="qryPayStatus">
+    <wsdl:part name="parameters" element="tns:qryPayStatus" />
+  </wsdl:message>
+  <wsdl:message name="refundReverseResponse">
+    <wsdl:part name="parameters" element="tns:refundReverseResponse" />
+  </wsdl:message>
+  <wsdl:message name="createOrder">
+    <wsdl:part name="parameters" element="tns:createOrder" />
+  </wsdl:message>
+  <wsdl:message name="createOrderResponse">
+    <wsdl:part name="parameters" element="tns:createOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="scanRefundResponse">
+    <wsdl:part name="parameters" element="tns:scanRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="reverseOrderResponse">
+    <wsdl:part name="parameters" element="tns:reverseOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="qryPayStatusResponse">
+    <wsdl:part name="parameters" element="tns:qryPayStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="qryRefundResponse">
+    <wsdl:part name="parameters" element="tns:qryRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="microPayResponse">
+    <wsdl:part name="parameters" element="tns:microPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryRefundStatusResponse">
+    <wsdl:part name="parameters" element="tns:queryRefundStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="refund">
+    <wsdl:part name="parameters" element="tns:refund" />
+  </wsdl:message>
+  <wsdl:message name="microPay">
+    <wsdl:part name="parameters" element="tns:microPay" />
+  </wsdl:message>
+  <wsdl:message name="refundReverse">
+    <wsdl:part name="parameters" element="tns:refundReverse" />
+  </wsdl:message>
+  <wsdl:message name="qryOrderStatus">
+    <wsdl:part name="parameters" element="tns:qryOrderStatus" />
+  </wsdl:message>
+  <wsdl:message name="qryRefund">
+    <wsdl:part name="parameters" element="tns:qryRefund" />
+  </wsdl:message>
+  <wsdl:message name="closeOrder">
+    <wsdl:part name="parameters" element="tns:closeOrder" />
+  </wsdl:message>
+  <wsdl:message name="qryOrderStatusResponse">
+    <wsdl:part name="parameters" element="tns:qryOrderStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWindowPayWebServiceV2">
+    <wsdl:operation name="scanRefund">
+      <wsdl:input name="scanRefund" message="tns:scanRefund" />
+      <wsdl:output name="scanRefundResponse" message="tns:scanRefundResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="qryOrderStatus">
+      <wsdl:input name="qryOrderStatus" message="tns:qryOrderStatus" />
+      <wsdl:output name="qryOrderStatusResponse" message="tns:qryOrderStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="queryRefundStatus">
+      <wsdl:input name="queryRefundStatus" message="tns:queryRefundStatus" />
+      <wsdl:output name="queryRefundStatusResponse" message="tns:queryRefundStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="closeOrder">
+      <wsdl:input name="closeOrder" message="tns:closeOrder" />
+      <wsdl:output name="closeOrderResponse" message="tns:closeOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="refund">
+      <wsdl:input name="refund" message="tns:refund" />
+      <wsdl:output name="refundResponse" message="tns:refundResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="reverseOrder">
+      <wsdl:input name="reverseOrder" message="tns:reverseOrder" />
+      <wsdl:output name="reverseOrderResponse" message="tns:reverseOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <wsdl:input name="createOrder" message="tns:createOrder" />
+      <wsdl:output name="createOrderResponse" message="tns:createOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="refundReverse">
+      <wsdl:input name="refundReverse" message="tns:refundReverse" />
+      <wsdl:output name="refundReverseResponse" message="tns:refundReverseResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="qryPayStatus">
+      <wsdl:input name="qryPayStatus" message="tns:qryPayStatus" />
+      <wsdl:output name="qryPayStatusResponse" message="tns:qryPayStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="microPay">
+      <wsdl:input name="microPay" message="tns:microPay" />
+      <wsdl:output name="microPayResponse" message="tns:microPayResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="qryRefund">
+      <wsdl:input name="qryRefund" message="tns:qryRefund" />
+      <wsdl:output name="qryRefundResponse" message="tns:qryRefundResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WindowPayWebServiceImplV2ServiceSoapBinding" type="tns:IWindowPayWebServiceV2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="qryOrderStatus">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/qryOrderStatus" style="document" />
+      <wsdl:input name="qryOrderStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="qryOrderStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scanRefund">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/scanRefund" style="document" />
+      <wsdl:input name="scanRefund">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="scanRefundResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRefundStatus">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/queryRefundStatus" style="document" />
+      <wsdl:input name="queryRefundStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="queryRefundStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeOrder">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/closeOrder" style="document" />
+      <wsdl:input name="closeOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="closeOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refund">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/refund" style="document" />
+      <wsdl:input name="refund">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="refundResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/createOrder" style="document" />
+      <wsdl:input name="createOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reverseOrder">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/reverseOrder" style="document" />
+      <wsdl:input name="reverseOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reverseOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refundReverse">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/refundReverse" style="document" />
+      <wsdl:input name="refundReverse">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="refundReverseResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="microPay">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/microPay" style="document" />
+      <wsdl:input name="microPay">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="microPayResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="qryPayStatus">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/qryPayStatus" style="document" />
+      <wsdl:input name="qryPayStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="qryPayStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="qryRefund">
+      <soap:operation soapAction="http://www.witontek.com/ehospital/qryRefund" style="document" />
+      <wsdl:input name="qryRefund">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="qryRefundResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WindowPayWebServiceImplV2Service">
+    <wsdl:port name="WindowPayWebServiceImplV2Port" binding="tns:WindowPayWebServiceImplV2ServiceSoapBinding">
+      <soap:address location="http://web.witontek.com/eHospital2/services/windowPayServiceV2" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

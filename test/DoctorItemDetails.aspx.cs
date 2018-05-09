@@ -10,12 +10,14 @@ using System.Web.UI.WebControls;
 public partial class test_DoctorItemDetails : System.Web.UI.Page
 {
     database_inte db = new database_inte();
+    string hrmID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        hrmID = Request.QueryString["hrmID"];
         if (!IsPostBack)
         {
             ResultDataSet Rs3 = new ResultDataSet();
-            string strSQL3 = "select * from Doctor_Item where UserId='1007'";
+            string strSQL3 = "select * from Doctor_Item where UserId='"+hrmID+"'";
             db.DBObj.GetRs(strSQL3, out Rs3);
             if (Rs3.RowCount > 0)
             {
@@ -136,7 +138,7 @@ public partial class test_DoctorItemDetails : System.Web.UI.Page
     private string getTextBoxContent(string s)
     {
         ResultDataSet Rs3 = new ResultDataSet();
-        string strSQL3 = "select * from Doctor_Details where UserId='1007' and normalItem='"+s+"'";
+        string strSQL3 = "select * from Doctor_Details where UserId='"+ hrmID + "' and normalItem='"+s+"'";
         db.DBObj.GetRs(strSQL3, out Rs3);
         if (Rs3.RowCount > 0)
         {
@@ -157,20 +159,19 @@ public partial class test_DoctorItemDetails : System.Web.UI.Page
         fillTextBox(Label8, TextBox8);
         fillTextBox(Label9, TextBox9);
         fillTextBox(Label10, TextBox10);
-        Response.Write("<script>javascript:alert( '保存成功！');window.location='Doctor1.aspx'</script>");
+        Response.Write("<script>javascript:alert( '保存成功！');window.location='Doctor1.aspx?hrmID=" + hrmID + "'</script>");
     }
     private void fillTextBox(Label lb,TextBox tb)
     {
-        string UserID = "1007";
         string lb1 = lb.Text.ToString();
         string tb1 = tb.Text.ToString();
-        string sql1 = "INSERT INTO [dbo].[Doctor_Details] ([UserID],[normalItem],[details])VALUES('" + UserID + "','" + lb1 + "','" + tb1 + "')";
+        string sql1 = "INSERT INTO [dbo].[Doctor_Details] ([UserID],[normalItem],[details])VALUES('" + hrmID + "','" + lb1 + "','" + tb1 + "')";
         ResultDataSet Rs1 = new ResultDataSet();
-        string strSQL1 = "select * from Doctor_Details where UserId='"+UserID+"' and normalItem='" + lb1 + "'";
+        string strSQL1 = "select * from Doctor_Details where UserId='"+ hrmID + "' and normalItem='" + lb1 + "'";
         db.DBObj.GetRs(strSQL1, out Rs1);
         if (Rs1.RowCount > 0)
         {
-            sql1 = "UPDATE [dbo].[Doctor_Details] SET [UserID] = '" + UserID + "' ,[normalItem] = '" + lb1 + "',[details] = '" + tb1 + "'";
+            sql1 = "UPDATE [dbo].[Doctor_Details] SET [UserID] = '" + hrmID + "' ,[normalItem] = '" + lb1 + "',[details] = '" + tb1 + "'";
         }
         if (!String.IsNullOrEmpty(tb1))
             db.DBObj.Exec(sql1);

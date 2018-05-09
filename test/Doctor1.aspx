@@ -296,6 +296,28 @@
                 </td>
                 <td class="auto-style3">&nbsp;</td>
             </tr>
+             <tr>
+                <td>
+                    <asp:TextBox ID="SQ11" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:CheckBox ID="CBS11" runat="server" />
+                </td>
+                <td>
+                    <asp:CheckBox ID="CBQ11" runat="server" />
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <asp:TextBox ID="TB11" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:CheckBox ID="CB111" runat="server" />
+                </td>
+                <td>
+                    <asp:CheckBox ID="CB21" runat="server" />
+                </td>
+                <td class="auto-style3">&nbsp;</td>
+            </tr>
             <tr>
                 <td class="auto-style8" colspan="8">其他授权</td>
             </tr>
@@ -315,9 +337,13 @@
              
             </table>
         
-        <p>
+        <p style=" clear:both;">
+            <br />
+            <asp:Button ID="Button5" runat="server" Text="返回" OnClick="Button5_Click"/>
             <asp:Button ID="Button1" runat="server" Text="保存" OnClick="Button1_Click" OnClientClick="return confirm('注意，一般项目授权涉及到明细，填好不要随意修改！')" />
-            <asp:Button ID="Button2" runat="server" Text="维护一般项目明细" OnClick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" Text="项目明细" OnClick="Button2_Click" />
+            <asp:Button ID="Button3" runat="server" Text="一般项目评核表" OnClick="Button3_Click" />
+            <asp:Button ID="Button4" runat="server" Text="特殊项目评核表" OnClick="Button4_Click"/>
         </p>
     </div>
     </form>

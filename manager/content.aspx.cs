@@ -9,6 +9,7 @@ using System.Data;
 using Dln.Common;
 using System.Configuration;
 using DTcms.Web.UI;
+using DTcms.Common;
 
 public partial class manager_content : BasePage
 {
@@ -26,6 +27,7 @@ public partial class manager_content : BasePage
             getDropdownlist();
             ddp_item.Items.Insert(0, new ListItem("请选择问题类别", "0"));
             ddp_item_child.Items.Insert(0, new ListItem("请选择问题类别", "0"));
+            TreeBind();
         } 
         Button1.Attributes.Add("onclick", "this.value='正在提交中,請稍等……';this.disabled=true;" + this.GetPostBackEventReference(Button1) + ";");
     }
@@ -48,6 +50,30 @@ public partial class manager_content : BasePage
             type.Items.Insert(0, new ListItem("请选择问题类别", "0"));
         }
 
+    }
+    private void TreeBind()
+    {
+        DataTable dt = GetAddressList(0);
+        this.dp_dress.Items.Clear();
+        this.dp_dress.Items.Add(new ListItem("请选择相应楼层", ""));
+        foreach (DataRow dr in dt.Rows)
+        {
+            string Id = dr["id"].ToString();
+            //string TypeID = dr["typeID"].ToString();
+            int ClassLayer = Convert.ToInt32(dr["class_layer"].ToString());
+            string Title = dr["typeName"].ToString().Trim();
+
+            if (ClassLayer == 1)
+            {
+                this.dp_dress.Items.Add(new ListItem(Title, Id));
+            }
+            else
+            {
+                Title = "├ " + Title;
+                Title = Utils.StringOfChar(ClassLayer - 1, "　") + Title;
+                this.dp_dress.Items.Add(new ListItem(Title, Id));
+            }
+        }
     }
     public void getChecklist()
     {
@@ -120,7 +146,9 @@ public partial class manager_content : BasePage
         string _OADeptID = null;
         string tbAssinger = null;
         string _assets = null;
-        if (String.IsNullOrEmpty(_title) || String.IsNullOrEmpty(_name) || String.IsNullOrEmpty(_tel) || String.IsNullOrEmpty(_address) || String.IsNullOrEmpty(_details) || _type == "0")
+        string _ddpAddress = dp_dress.SelectedValue;
+        string _floor = getDDPAddress();
+        if (String.IsNullOrEmpty(_title) || String.IsNullOrEmpty(_name) || String.IsNullOrEmpty(_tel) || String.IsNullOrEmpty(_address) || String.IsNullOrEmpty(_details) || _type == "0" || String.IsNullOrEmpty(_ddpAddress))
         {
             //JscriptMsg("haha", "content.aspx", "Success");$.dialog.alert('标题不能为空！');
             //Response.Write("<script>$.dialog.alert('提交失败，请填写完整！');</script>");
@@ -164,7 +192,7 @@ public partial class manager_content : BasePage
             }
             ResultDataSet Rs2 = new ResultDataSet();
             database_inte db2 = new database_inte();
-            string sql2 = "insert into dt_order (title,number,img_url,name,telephone,address,details,username,priority,state,add_time,type,group_id,AppointUser,deptID,fixedAssets) values ('" + _title + "','" + _number + "','" + _img_url + "','" + _name + "','" + _tel + "','" + _address + "','" + _details + "','" + _username + "','" + _dp_priority + "','" + _state + "','" + _add_time + "','" + _type + "','" + group_id + "','" + tbAssinger + "','" + _OADeptID + "','" + _assets + "') SELECT @@IDENTITY as ID";
+            string sql2 = "insert into dt_order (title,number,img_url,name,telephone,address,details,username,priority,state,add_time,type,group_id,AppointUser,deptID,fixedAssets,floor,flevel) values ('" + _title + "','" + _number + "','" + _img_url + "','" + _name + "','" + _tel + "','" + _address + "','" + _details + "','" + _username + "','" + _dp_priority + "','" + _state + "','" + _add_time + "','" + _type + "','" + group_id + "','" + tbAssinger + "','" + _OADeptID + "','" + _assets + "','" + _floor + "','" + _ddpAddress + "') SELECT @@IDENTITY as ID";
             if (db2.DB2Obj.GetRs(sql2, out Rs2))
             {
                 title.Text = "";
@@ -263,6 +291,27 @@ public partial class manager_content : BasePage
                 ddp_item_child.Items.Insert(0, new ListItem("请选择问题类别", "0"));
             }
         }
+    }
+    public string getDDPAddress()
+    {
+        string val = dp_dress.SelectedValue;
+        if (val != "")
+        {
+            string strSQL = "select * from FileType where id="+int.Parse(dp_dress.SelectedValue) +"";
+            ResultDataSet Rs2 = new ResultDataSet();
+            database_inte db2 = new database_inte();
+            if (db2.DB2Obj.GetRs(strSQL, out Rs2))
+            {
+                string parentID = Rs2[0, "parentID"].ToString();
+                string strSQL3 = "select * from FileType where id=" + int.Parse(parentID) + "";
+                ResultDataSet Rs3 = new ResultDataSet();
+                if (db2.DB2Obj.GetRs(strSQL3, out Rs3))
+                {
+                    return Rs3[0, "typeName"].ToString();
+                }
+            }
+        }
+        return "";
     }
 
 }

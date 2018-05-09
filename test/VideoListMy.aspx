@@ -68,7 +68,7 @@
   <div id="floatHead" class="toolbar">
   <div class="l-list">
       <ul class="icon-list">
-      <li><asp:LinkButton ID="btnUpdateWC" runat="server" CssClass="save" 
+      <li style="display:none"><asp:LinkButton ID="btnUpdateWC" runat="server" CssClass="save" 
               onclick="btnUpdateWC_Click" ><i></i><span>查看全部课程</span></asp:LinkButton></li>
         <li style="display:none"><asp:LinkButton ID="btnUpdate" runat="server" CssClass="save" 
                 OnClientClick="return ExePostBack1('btnUpdate');" onclick="btnUpdate_Click"><i></i><span>更改为处理中</span></asp:LinkButton></li>
@@ -91,10 +91,11 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
     <th width="5%">选择</th>
-    <th align="left" width="12%">影片名</th>
-    <th align="left" width="18%">地址</th>
-    <th align="left" width="13%">用户名</th>
-    <th align="left" width="5%">时间</th>
+    <th align="left" width="10%">工号</th>
+    <th align="left" width="20%">姓名</th>
+    <th align="left" width="20%">部门名称</th>
+    <th align="left" width="20%">现任职称</th>
+      <th align="left" width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>
@@ -103,16 +104,17 @@
   <tr>
     <td align="center">
       <asp:CheckBox ID="chkId" CssClass="checkall" runat="server" style="vertical-align:middle;" />
-      <asp:HiddenField ID="hidId" Value='<%#Eval("id")%>' runat="server" />
+      <asp:HiddenField ID="hidId" Value='<%#Eval("hrmID")%>' runat="server" />
     </td>
-    <td class="tdTitle"><a href="video.aspx?id=<%#Eval("id")%>&url=order_list"><%# Eval("name")%></a></td>
-    <td><%# Eval("address")%></td>
-    <td><%# Eval("teacher")%></td>
-    <td><%# Eval("add_time")%></td>
+    <td class="tdTitle"><a href="Doctor1.aspx?hrmID=<%#Eval("hrmID")%>&url=order_list"><%# Eval("hrmID")%></a></td>
+    <td><%# Eval("name")%></td>
+    <td><%# Eval("departname")%></td>
+    <td><%# Eval("techlevel")%></td>
+    <td><a href="Doctor1.aspx?hrmID=<%#Eval("hrmID")%>&url=order_list">查看医生授权</a></td>
   </tr>
 </ItemTemplate>
 <FooterTemplate>
-  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"5\">暂无记录</td></tr>" : ""%>
+  <%#rptList1.Items.Count == 0 ? "<tr><td align=\"center\" colspan=\"6\">暂无记录</td></tr>" : ""%>
 </table>
 </FooterTemplate>
 </asp:Repeater>

@@ -104,6 +104,31 @@
         }
         
     }
+    function myAddressFunction() {
+        var f=$('#dp_dress').val();
+        if (f == "" || f == "64" || f == "65" || f == "66" || f == "67" || f == "68" || f == "69" || f == "145") {
+
+            alert('请选择相应层数');
+            $('#dp_dress').focus();
+        }
+        else {
+            $.ajax({
+                url: '../tools/Handler.ashx?action=getFloor',
+                type: 'post',
+                data: {
+                    number: f,
+                },
+                success: function (data, response, status) {
+                    if (data != 0) {
+                        $('#address').val(data);
+                    } else {
+                        $('#address').val("");
+                    }
+                },
+            });
+        }
+
+    }
     function myFunction2()
     {
         $.ajax({
@@ -219,7 +244,7 @@ function SetUIStyle3() {
                     <%--<a href="#" class="btn btn-setting btn-round btn-default"><i
                             class="glyphicon glyphicon-cog"></i></a>
                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
-                            class="glyphicon glyphicon-chevron-up"></i></a>
+                            class="glyphicon glyphicon-chevron-up"></i></a><a href="http://www.healthyperson.cn/test.aspx" target="_blank">(微信扫一扫)</a>
                     <a href="#" class="btn btn-close btn-round btn-default"><i
                             class="glyphicon glyphicon-remove"></i></a>--%>
                 </div>
@@ -230,7 +255,7 @@ function SetUIStyle3() {
             </asp:ScriptManager>
             <div class="control-group">
                 
-                <label class="control-label" for="selectError">固定资产号<a href="http://www.healthyperson.cn/test.aspx" target="_blank">(微信扫一扫)</a></label>
+                <label class="control-label" for="selectError">固定资产号</label>
                     <div class="controls">
                         <asp:TextBox ID="assets" runat="server" class="form-control" placeholder="选填" ></asp:TextBox>
                     </div>
@@ -268,7 +293,7 @@ function SetUIStyle3() {
                     <div class="controls">
                         <asp:DropDownList ID="dp_dress" runat="server"  class="form-control">
                         </asp:DropDownList>
-                        <asp:TextBox ID="address" runat="server" class="form-control" placeholder="请输入报修地址" onkeydown="if(event.keyCode==32) return false"></asp:TextBox>
+                        <asp:TextBox ID="address" runat="server" class="form-control" placeholder="请输入报修地址" onkeydown="if(event.keyCode==32) return false" onfocus="myAddressFunction()"></asp:TextBox>
                     </div>
                     <label for="exampleInputEmail1">故障图片</label>
                 <div class="controls">

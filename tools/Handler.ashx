@@ -34,6 +34,9 @@ public class Handler : IHttpHandler, System.Web.SessionState.IRequiresSessionSta
             case "record":
                 getrecord(context);
                 break;
+            case "getFloor":
+                getFloor(context);
+                break;
             default: //普通上传
                 UpLoadFile(context);
                 break;
@@ -53,6 +56,21 @@ public class Handler : IHttpHandler, System.Web.SessionState.IRequiresSessionSta
         else
         {
             context.Response.Write("1");
+        }
+
+    }
+    private void getFloor(HttpContext context)
+    {
+
+        string number = DTRequest.GetFormString("number").Trim();
+        string s = db.getDDPAddress(number);
+        if(s!="")
+        {
+            context.Response.Write(s);
+        }
+        else
+        {
+            context.Response.Write("0");
         }
 
     }

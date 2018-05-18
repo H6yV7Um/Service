@@ -96,7 +96,7 @@ public partial class manager_content : BasePage
         string val = type.SelectedValue;
         if (val != "0")
         {
-            string strSQL = "select * from dt_type_list where parentID='" + val + "' ";
+            string strSQL = "select * from dt_type_list where parentID='" + val + "' order by id desc ";
             ResultDataSet Rs2 = new ResultDataSet();
             database_inte db2 = new database_inte();
             if (db2.DB2Obj.GetRs(strSQL, out Rs2))
@@ -307,7 +307,7 @@ public partial class manager_content : BasePage
                 ResultDataSet Rs3 = new ResultDataSet();
                 if (db2.DB2Obj.GetRs(strSQL3, out Rs3))
                 {
-                    return Rs3[0, "typeName"].ToString();
+                    return Rs3[0, "typeName"]+"";
                 }
             }
         }

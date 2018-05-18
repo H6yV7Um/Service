@@ -189,7 +189,7 @@ public partial class test_Wechart : System.Web.UI.Page
                 para.Add("auth_code", auth_code);
                 para.Add("order_amount", order_amount);
                 para.Add("biz_id", biz_id);
-                para.Add("pay_type", pay_type);
+                //para.Add("pay_type", pay_type);
                 para.Add("data_src", data_src);
                 para.Add("cashier_id", cashier_id);
                 string signs = GetMD5Key(para, sign);//B9EB02AAD7DAB96B58A0D34CC2E12952
@@ -231,7 +231,7 @@ public partial class test_Wechart : System.Web.UI.Page
         para.Add("hospital_id", "syzyyadmin");
         para.Add("biz_id", biz_id);
         string signs = GetMD5Key(para, sign);
-        TestAddressPay.WindowPayWebServiceV2Client _client = new TestAddressPay.WindowPayWebServiceV2Client();
+        ServiceReferenceV2.WindowPayWebServiceV2Client _client = new ServiceReferenceV2.WindowPayWebServiceV2Client();
         string json = "{\"hospital_id\":\"syzyyadmin\",\"biz_id\":\"" + biz_id + "\",\"sign\":\"" + signs + "\"}";
         string s = _client.reverseOrder(json);
         Label2.Text = s;

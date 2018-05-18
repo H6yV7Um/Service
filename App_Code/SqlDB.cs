@@ -89,6 +89,27 @@ namespace DBWebService
             }
             return str;
         }
+        public string getDDPAddress(string s)
+        {
+            string val = s;
+            if (val != "")
+            {
+                string strSQL = "select * from FileType where id=" + int.Parse(val) + "";
+                ResultDataSet Rs2 = new ResultDataSet();
+                database_inte db2 = new database_inte();
+                if (db2.DB2Obj.GetRs(strSQL, out Rs2))
+                {
+                    string parentID = Rs2[0, "parentID"].ToString();
+                    string strSQL3 = "select * from FileType where id=" + int.Parse(parentID) + "";
+                    ResultDataSet Rs3 = new ResultDataSet();
+                    if (db2.DB2Obj.GetRs(strSQL3, out Rs3))
+                    {
+                        return Rs3[0, "typeName"] + "" + Rs2[0, "typeName"];
+                    }
+                }
+            }
+            return "";
+        }
         public string checkNumber(string _user)
         {
             string str = "0";
